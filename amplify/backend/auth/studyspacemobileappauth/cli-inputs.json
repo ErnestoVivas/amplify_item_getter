@@ -1,0 +1,84 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "resourceNameTruncated": "studysfe592f14",
+    "userPoolName": "studyspace-mobile-app-users",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "studyspace App Verifizierungscode",
+    "emailVerificationMessage": "Dein Verifizierungscode ist {####}.",
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "8",
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "preferred_username"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "365",
+    "userpoolClientWriteAttributes": [
+      "email",
+      "preferred_username"
+    ],
+    "userpoolClientReadAttributes": [
+      "email",
+      "preferred_username",
+      "email_verified"
+    ],
+    "userpoolClientLambdaRole": "studysfe592f14_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "fe592f14",
+    "resourceName": "studyspacemobileappauth",
+    "authSelections": "userPoolOnly",
+    "useDefault": "manual",
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": {
+      "PreSignup": [
+        "custom"
+      ]
+    },
+    "hostedUI": false,
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "studyspacemobileappauthPreSignup",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "permissions": [],
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"studyspacemobileappauthPreSignup\"\n  }\n]",
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    }
+  }
+}  

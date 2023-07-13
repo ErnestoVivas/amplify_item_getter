@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-studyspacemobileapp-dev-112247-authRole",
+      "UnauthRoleArn": "arn:aws:iam::702163809751:role/amplify-studyspacemobileapp-dev-112247-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::702163809751:role/amplify-studyspacemobileapp-dev-112247-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-studyspacemobileapp-dev-112247-deployment",
+      "UnauthRoleName": "amplify-studyspacemobileapp-dev-112247-unauthRole",
+      "StackName": "amplify-studyspacemobileapp-dev-112247",
+      "StackId": "arn:aws:cloudformation:eu-central-1:702163809751:stack/amplify-studyspacemobileapp-dev-112247/43d3f620-9b10-11ed-9b37-029f4759ac82",
+      "AmplifyAppId": "deq5h06y8vmm8",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-studyspacemobileapp-dev-112247-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "studyspacemobileappauth": {}
+      },
+      "function": {
+        "studyspacemobileappauthPreSignup": {
+          "deploymentBucketName": "amplify-studyspacemobileapp-dev-112247-deployment",
+          "s3Key": "amplify-builds/studyspacemobileappauthPreSignup-6f6e7865426d54773946-build.zip"
+        }
+      }
+    }
+  }
+}

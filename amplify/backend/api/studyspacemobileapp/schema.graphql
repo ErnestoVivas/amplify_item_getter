@@ -1,0 +1,160 @@
+enum TileSize {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+type SetsDetail {
+  SetsKey: String
+  feedback: String
+  exerciseTime: String
+  startingTime: String
+}
+
+type StudentSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  sessionID: String!
+  studySpaceId: String!
+  student: String!
+  sets: [SetsDetail]
+  setsQueue: [String]!
+  blackList: String!
+  active: String!
+  teacher: String!
+}
+
+type TeacherSession @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  studySpaceId: String!
+  teacher: String!
+}
+
+type OrderItemsExercise @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  items: [String!]!
+  task: String!
+  cloze: [String]
+  falseItems: [String]
+  hint: String!
+}
+
+type TrueFalseQuestion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  question: String!
+  equation: String
+  image: String
+  isTrue: Boolean!
+  hint: String!
+  solution: String!
+}
+
+type DragAndDropQuestion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  question: String!
+  typeListOne: Int!
+  typeListTwo: Int!
+  listOne: [String!]!
+  listTwo: [String!]!
+  tileSize: TileSize!
+  isBucketExercise: Boolean!
+  bucketOne: String
+  bucketTwo: String
+  hint: String!
+}
+
+type MultipleChoiceQuestion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  question: String!
+  equation: String
+  image: String
+  answers: [String!]!
+  numCorrectAnswers: Int!
+  hint: String!
+  solution: String!
+}
+
+type SingleChoiceQuestion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  question: String!
+  equation: String
+  image: String
+  answer0: String!
+  answer1: String!
+  answer2: String
+  answer3: String
+  hint: String!
+  solution: String!
+}
+
+type SingleImageChoiceQuestion @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  exerciseSets: [String!]!
+  question: String!
+  equation: String
+  image0: String!
+  image1: String!
+  image2: String
+  image3: String
+  hint: String!
+  solution: String!
+}
+
+type Feedback @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  contentKey: String!
+  feedback: String!
+}
+
+type OverviewPage @model @auth(rules: [{allow: public}]) {
+  key: String! @primaryKey
+    (sortKeyFields: ["page"])
+  page: Int!
+  content: String!
+  videoLink: String
+  videoDuration: String
+}
+
+type TopicCategories {
+  grade5: Boolean
+  grade6: Boolean
+  grade7: Boolean
+  grade8: Boolean
+  grade9: Boolean
+  grade10: Boolean
+  grade11: Boolean
+  grade12: Boolean
+  grade13: Boolean
+  realschule: Boolean
+  gesamtschule: Boolean
+  gymnasium: Boolean
+  gk: Boolean
+  lk: Boolean
+}
+
+type Topic @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  path: String!
+  key: Int!
+  name: String!
+  index: Int!
+  isGroupLabel: Boolean!
+  icon: String
+  categories: TopicCategories!
+}
+
+type Rating {
+  key: String!
+  value: Float!
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  studyspaceID: String! @primaryKey
+  hasAccount: Boolean!
+  studyStats: [Rating]
+}
+ 
