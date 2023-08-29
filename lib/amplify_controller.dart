@@ -22,20 +22,111 @@ Future<void> configureAmplify() async {
 
     // Add amplify plugins (S3 storage not yet added - add if needed)
     final auth = AmplifyAuthCognito();
-    final dataStore = AmplifyDataStore(modelProvider: ModelProvider.instance);
+    final dataStore = AmplifyDataStore(
+      modelProvider: ModelProvider.instance,
+      syncExpressions: [
+        DataStoreSyncExpression(User.classType, () => User.STUDYSPACEID.eq('-99')),
+        DataStoreSyncExpression(OverviewPage.classType, () => OverviewPage.PAGE.eq(99)),
+        DataStoreSyncExpression(Feedback.classType, () => Feedback.CONTENTKEY.eq('99')),
+      ]
+    );
     final AmplifyAPI apiPlugin = AmplifyAPI(modelProvider: ModelProvider.instance);
     await Amplify.addPlugins([auth, dataStore, apiPlugin]);
 
     // configure amplify (can only be done once, catch exception)
     try {
       await Amplify.configure(amplifyconfig);
-      safePrint('Successfully configured Amplify.');
+      print('Successfully configured Amplify.');
     } on AmplifyAlreadyConfiguredException {
-      safePrint("Tried to reconfigure Amplify; this can occur when the app restarts on android.");
+      print("Tried to reconfigure Amplify; this can occur when the app restarts on android.");
     }
   }
 
   // sync one time on app launch, such that later queries find data directly
   await Amplify.DataStore.start();
+}
 
+Future<List<SingleChoiceQuestion>> querySingleChoiceQuestions(String queryKey) async {
+  List<SingleChoiceQuestion> singleChoiceQuestions = [];
+  try {
+    singleChoiceQuestions = await Amplify.DataStore.query(
+      SingleChoiceQuestion.classType,
+      //where: SingleChoiceQuestion.EXERCISESETS.contains(queryKey)
+    );
+    print('Queried sc questions');
+  } on DataStoreException catch (e) {
+    singleChoiceQuestions = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return singleChoiceQuestions;
+}
+
+Future<List<SingleImageChoiceQuestion>> querySingleImageChoiceQuestions(String queryKey) async {
+  List<SingleImageChoiceQuestion> singleImageChoiceQuestions = [];
+  try {
+    singleImageChoiceQuestions = await Amplify.DataStore.query(
+      SingleImageChoiceQuestion.classType,
+      //where: SingleImageChoiceQuestion.EXERCISESETS.contains(queryKey),
+    );
+  } on DataStoreException catch (e) {
+    singleImageChoiceQuestions = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return singleImageChoiceQuestions;
+}
+
+Future<List<MultipleChoiceQuestion>> queryMultipleChoiceQuestions(String queryKey) async {
+  List<MultipleChoiceQuestion> multipleChoiceQuestions = [];
+  try {
+    multipleChoiceQuestions = await Amplify.DataStore.query(
+      MultipleChoiceQuestion.classType,
+      //where: MultipleChoiceQuestion.EXERCISESETS.contains(queryKey),
+    );
+  } on DataStoreException catch (e) {
+    multipleChoiceQuestions = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return multipleChoiceQuestions;
+}
+
+Future<List<TrueFalseQuestion>> queryTrueFalseQuestions(String queryKey) async {
+  List<TrueFalseQuestion> trueFalseQuestions = [];
+  try {
+    trueFalseQuestions = await Amplify.DataStore.query(
+      TrueFalseQuestion.classType,
+      //where: TrueFalseQuestion.EXERCISESETS.contains(queryKey),
+    );
+  } on DataStoreException catch (e) {
+    trueFalseQuestions = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return trueFalseQuestions;
+}
+
+Future<List<DragAndDropQuestion>> queryDragAndDropQuestions(String queryKey) async {
+  List<DragAndDropQuestion> dragAndDropQuestions = [];
+  try {
+    dragAndDropQuestions = await Amplify.DataStore.query(
+      DragAndDropQuestion.classType,
+      //where: DragAndDropQuestion.EXERCISESETS.contains(queryKey),
+    );
+  } on DataStoreException catch (e) {
+    dragAndDropQuestions = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return dragAndDropQuestions;
+}
+
+Future<List<OrderItemsExercise>> queryOrderItemsExercises(String queryKey) async {
+  List<OrderItemsExercise> orderItemsExercises = [];
+  try {
+    orderItemsExercises = await Amplify.DataStore.query(
+      OrderItemsExercise.classType,
+      //where: OrderItemsExercise.EXERCISESETS.contains(queryKey),
+    );
+  } on DataStoreException catch (e) {
+    orderItemsExercises = [];
+    safePrint('Query failed: ${e.message}');
+  }
+  return orderItemsExercises;
 }

@@ -20,7 +20,6 @@
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
 import 'package:amplify_core/amplify_core.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 
 
@@ -29,7 +28,7 @@ import 'package:flutter/foundation.dart';
 class SingleChoiceQuestion extends Model {
   static const classType = const _SingleChoiceQuestionModelType();
   final String id;
-  final List<String>? _exerciseSets;
+  final String? _exerciseSet;
   final String? _question;
   final String? _equation;
   final String? _image;
@@ -55,9 +54,9 @@ class SingleChoiceQuestion extends Model {
       );
   }
   
-  List<String> get exerciseSets {
+  String get exerciseSet {
     try {
-      return _exerciseSets!;
+      return _exerciseSet!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -157,12 +156,12 @@ class SingleChoiceQuestion extends Model {
     return _updatedAt;
   }
   
-  const SingleChoiceQuestion._internal({required this.id, required exerciseSets, required question, equation, image, required answer0, required answer1, answer2, answer3, required hint, required solution, createdAt, updatedAt}): _exerciseSets = exerciseSets, _question = question, _equation = equation, _image = image, _answer0 = answer0, _answer1 = answer1, _answer2 = answer2, _answer3 = answer3, _hint = hint, _solution = solution, _createdAt = createdAt, _updatedAt = updatedAt;
+  const SingleChoiceQuestion._internal({required this.id, required exerciseSet, required question, equation, image, required answer0, required answer1, answer2, answer3, required hint, required solution, createdAt, updatedAt}): _exerciseSet = exerciseSet, _question = question, _equation = equation, _image = image, _answer0 = answer0, _answer1 = answer1, _answer2 = answer2, _answer3 = answer3, _hint = hint, _solution = solution, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory SingleChoiceQuestion({String? id, required List<String> exerciseSets, required String question, String? equation, String? image, required String answer0, required String answer1, String? answer2, String? answer3, required String hint, required String solution}) {
+  factory SingleChoiceQuestion({String? id, required String exerciseSet, required String question, String? equation, String? image, required String answer0, required String answer1, String? answer2, String? answer3, required String hint, required String solution}) {
     return SingleChoiceQuestion._internal(
       id: id == null ? UUID.getUUID() : id,
-      exerciseSets: exerciseSets != null ? List<String>.unmodifiable(exerciseSets) : exerciseSets,
+      exerciseSet: exerciseSet,
       question: question,
       equation: equation,
       image: image,
@@ -183,7 +182,7 @@ class SingleChoiceQuestion extends Model {
     if (identical(other, this)) return true;
     return other is SingleChoiceQuestion &&
       id == other.id &&
-      DeepCollectionEquality().equals(_exerciseSets, other._exerciseSets) &&
+      _exerciseSet == other._exerciseSet &&
       _question == other._question &&
       _equation == other._equation &&
       _image == other._image &&
@@ -204,7 +203,7 @@ class SingleChoiceQuestion extends Model {
     
     buffer.write("SingleChoiceQuestion {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("exerciseSets=" + (_exerciseSets != null ? _exerciseSets!.toString() : "null") + ", ");
+    buffer.write("exerciseSet=" + "$_exerciseSet" + ", ");
     buffer.write("question=" + "$_question" + ", ");
     buffer.write("equation=" + "$_equation" + ", ");
     buffer.write("image=" + "$_image" + ", ");
@@ -221,10 +220,10 @@ class SingleChoiceQuestion extends Model {
     return buffer.toString();
   }
   
-  SingleChoiceQuestion copyWith({List<String>? exerciseSets, String? question, String? equation, String? image, String? answer0, String? answer1, String? answer2, String? answer3, String? hint, String? solution}) {
+  SingleChoiceQuestion copyWith({String? exerciseSet, String? question, String? equation, String? image, String? answer0, String? answer1, String? answer2, String? answer3, String? hint, String? solution}) {
     return SingleChoiceQuestion._internal(
       id: id,
-      exerciseSets: exerciseSets ?? this.exerciseSets,
+      exerciseSet: exerciseSet ?? this.exerciseSet,
       question: question ?? this.question,
       equation: equation ?? this.equation,
       image: image ?? this.image,
@@ -238,7 +237,7 @@ class SingleChoiceQuestion extends Model {
   
   SingleChoiceQuestion.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _exerciseSets = json['exerciseSets']?.cast<String>(),
+      _exerciseSet = json['exerciseSet'],
       _question = json['question'],
       _equation = json['equation'],
       _image = json['image'],
@@ -252,16 +251,16 @@ class SingleChoiceQuestion extends Model {
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'equation': _equation, 'image': _image, 'answer0': _answer0, 'answer1': _answer1, 'answer2': _answer2, 'answer3': _answer3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image': _image, 'answer0': _answer0, 'answer1': _answer1, 'answer2': _answer2, 'answer3': _answer3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'equation': _equation, 'image': _image, 'answer0': _answer0, 'answer1': _answer1, 'answer2': _answer2, 'answer3': _answer3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image': _image, 'answer0': _answer0, 'answer1': _answer1, 'answer2': _answer2, 'answer3': _answer3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryModelIdentifier<SingleChoiceQuestionModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<SingleChoiceQuestionModelIdentifier>();
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESETS = QueryField(fieldName: "exerciseSets");
+  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
   static final QueryField QUESTION = QueryField(fieldName: "question");
   static final QueryField EQUATION = QueryField(fieldName: "equation");
   static final QueryField IMAGE = QueryField(fieldName: "image");
@@ -289,10 +288,9 @@ class SingleChoiceQuestion extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: SingleChoiceQuestion.EXERCISESETS,
+      key: SingleChoiceQuestion.EXERCISESET,
       isRequired: true,
-      isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(

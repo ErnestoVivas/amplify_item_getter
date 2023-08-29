@@ -30,7 +30,7 @@ import 'package:flutter/foundation.dart';
 class DragAndDropQuestion extends Model {
   static const classType = const _DragAndDropQuestionModelType();
   final String id;
-  final List<String>? _exerciseSets;
+  final String? _exerciseSet;
   final String? _question;
   final int? _typeListOne;
   final int? _typeListTwo;
@@ -57,9 +57,9 @@ class DragAndDropQuestion extends Model {
       );
   }
   
-  List<String> get exerciseSets {
+  String get exerciseSet {
     try {
-      return _exerciseSets!;
+      return _exerciseSet!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -190,12 +190,12 @@ class DragAndDropQuestion extends Model {
     return _updatedAt;
   }
   
-  const DragAndDropQuestion._internal({required this.id, required exerciseSets, required question, required typeListOne, required typeListTwo, required listOne, required listTwo, required tileSize, required isBucketExercise, bucketOne, bucketTwo, required hint, createdAt, updatedAt}): _exerciseSets = exerciseSets, _question = question, _typeListOne = typeListOne, _typeListTwo = typeListTwo, _listOne = listOne, _listTwo = listTwo, _tileSize = tileSize, _isBucketExercise = isBucketExercise, _bucketOne = bucketOne, _bucketTwo = bucketTwo, _hint = hint, _createdAt = createdAt, _updatedAt = updatedAt;
+  const DragAndDropQuestion._internal({required this.id, required exerciseSet, required question, required typeListOne, required typeListTwo, required listOne, required listTwo, required tileSize, required isBucketExercise, bucketOne, bucketTwo, required hint, createdAt, updatedAt}): _exerciseSet = exerciseSet, _question = question, _typeListOne = typeListOne, _typeListTwo = typeListTwo, _listOne = listOne, _listTwo = listTwo, _tileSize = tileSize, _isBucketExercise = isBucketExercise, _bucketOne = bucketOne, _bucketTwo = bucketTwo, _hint = hint, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory DragAndDropQuestion({String? id, required List<String> exerciseSets, required String question, required int typeListOne, required int typeListTwo, required List<String> listOne, required List<String> listTwo, required TileSize tileSize, required bool isBucketExercise, String? bucketOne, String? bucketTwo, required String hint}) {
+  factory DragAndDropQuestion({String? id, required String exerciseSet, required String question, required int typeListOne, required int typeListTwo, required List<String> listOne, required List<String> listTwo, required TileSize tileSize, required bool isBucketExercise, String? bucketOne, String? bucketTwo, required String hint}) {
     return DragAndDropQuestion._internal(
       id: id == null ? UUID.getUUID() : id,
-      exerciseSets: exerciseSets != null ? List<String>.unmodifiable(exerciseSets) : exerciseSets,
+      exerciseSet: exerciseSet,
       question: question,
       typeListOne: typeListOne,
       typeListTwo: typeListTwo,
@@ -217,7 +217,7 @@ class DragAndDropQuestion extends Model {
     if (identical(other, this)) return true;
     return other is DragAndDropQuestion &&
       id == other.id &&
-      DeepCollectionEquality().equals(_exerciseSets, other._exerciseSets) &&
+      _exerciseSet == other._exerciseSet &&
       _question == other._question &&
       _typeListOne == other._typeListOne &&
       _typeListTwo == other._typeListTwo &&
@@ -239,7 +239,7 @@ class DragAndDropQuestion extends Model {
     
     buffer.write("DragAndDropQuestion {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("exerciseSets=" + (_exerciseSets != null ? _exerciseSets!.toString() : "null") + ", ");
+    buffer.write("exerciseSet=" + "$_exerciseSet" + ", ");
     buffer.write("question=" + "$_question" + ", ");
     buffer.write("typeListOne=" + (_typeListOne != null ? _typeListOne!.toString() : "null") + ", ");
     buffer.write("typeListTwo=" + (_typeListTwo != null ? _typeListTwo!.toString() : "null") + ", ");
@@ -257,10 +257,10 @@ class DragAndDropQuestion extends Model {
     return buffer.toString();
   }
   
-  DragAndDropQuestion copyWith({List<String>? exerciseSets, String? question, int? typeListOne, int? typeListTwo, List<String>? listOne, List<String>? listTwo, TileSize? tileSize, bool? isBucketExercise, String? bucketOne, String? bucketTwo, String? hint}) {
+  DragAndDropQuestion copyWith({String? exerciseSet, String? question, int? typeListOne, int? typeListTwo, List<String>? listOne, List<String>? listTwo, TileSize? tileSize, bool? isBucketExercise, String? bucketOne, String? bucketTwo, String? hint}) {
     return DragAndDropQuestion._internal(
       id: id,
-      exerciseSets: exerciseSets ?? this.exerciseSets,
+      exerciseSet: exerciseSet ?? this.exerciseSet,
       question: question ?? this.question,
       typeListOne: typeListOne ?? this.typeListOne,
       typeListTwo: typeListTwo ?? this.typeListTwo,
@@ -275,7 +275,7 @@ class DragAndDropQuestion extends Model {
   
   DragAndDropQuestion.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _exerciseSets = json['exerciseSets']?.cast<String>(),
+      _exerciseSet = json['exerciseSet'],
       _question = json['question'],
       _typeListOne = (json['typeListOne'] as num?)?.toInt(),
       _typeListTwo = (json['typeListTwo'] as num?)?.toInt(),
@@ -290,16 +290,16 @@ class DragAndDropQuestion extends Model {
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'typeListOne': _typeListOne, 'typeListTwo': _typeListTwo, 'listOne': _listOne, 'listTwo': _listTwo, 'tileSize': enumToString(_tileSize), 'isBucketExercise': _isBucketExercise, 'bucketOne': _bucketOne, 'bucketTwo': _bucketTwo, 'hint': _hint, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'typeListOne': _typeListOne, 'typeListTwo': _typeListTwo, 'listOne': _listOne, 'listTwo': _listTwo, 'tileSize': enumToString(_tileSize), 'isBucketExercise': _isBucketExercise, 'bucketOne': _bucketOne, 'bucketTwo': _bucketTwo, 'hint': _hint, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'typeListOne': _typeListOne, 'typeListTwo': _typeListTwo, 'listOne': _listOne, 'listTwo': _listTwo, 'tileSize': _tileSize, 'isBucketExercise': _isBucketExercise, 'bucketOne': _bucketOne, 'bucketTwo': _bucketTwo, 'hint': _hint, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'typeListOne': _typeListOne, 'typeListTwo': _typeListTwo, 'listOne': _listOne, 'listTwo': _listTwo, 'tileSize': _tileSize, 'isBucketExercise': _isBucketExercise, 'bucketOne': _bucketOne, 'bucketTwo': _bucketTwo, 'hint': _hint, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryModelIdentifier<DragAndDropQuestionModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<DragAndDropQuestionModelIdentifier>();
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESETS = QueryField(fieldName: "exerciseSets");
+  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
   static final QueryField QUESTION = QueryField(fieldName: "question");
   static final QueryField TYPELISTONE = QueryField(fieldName: "typeListOne");
   static final QueryField TYPELISTTWO = QueryField(fieldName: "typeListTwo");
@@ -328,10 +328,9 @@ class DragAndDropQuestion extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: DragAndDropQuestion.EXERCISESETS,
+      key: DragAndDropQuestion.EXERCISESET,
       isRequired: true,
-      isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(

@@ -1,5 +1,9 @@
+import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:amplify_core/amplify_core.dart';
 import 'package:amplify_item_getter/amplify_controller.dart' as amplify_controller;
+import 'package:amplify_item_getter/models/ModelProvider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,9 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _amplifyConfigured = false;
 
   @override
+  initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _configureAmplify());
+  }
+
+  @override
   Widget build(BuildContext context) {
     if(!_amplifyConfigured) {
-      _configureAmplify();
       return const CircularProgressIndicator();
     } else {
       return Scaffold(
@@ -86,16 +95,54 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() => _amplifyConfigured = true);
   }
 
-  void _getSingleChoiceItems() async {}
+  void _getSingleChoiceItems() async {
+    List<SingleChoiceQuestion> singleChoiceQuestions = await amplify_controller.querySingleChoiceQuestions('allKeys');
+    print(singleChoiceQuestions.length);
+    _writeItemsToJsonFile(singleChoiceQuestions, 'singleChoiceQuestions');
+  }
 
-  void _getSingleImageItems() async {}
+  void _getSingleImageItems() async {
+    List<SingleImageChoiceQuestion> singleImageChoiceQuestions = await amplify_controller.querySingleImageChoiceQuestions('allKeys');
+    print(singleImageChoiceQuestions.length);
+    _writeItemsToJsonFile(singleImageChoiceQuestions, 'singleImageChoiceQuestions');
+  }
 
-  void _getMultipleChoiceItems() async {}
+  void _getMultipleChoiceItems() async {
+    List<MultipleChoiceQuestion> multipleChoiceQuestions = await amplify_controller.queryMultipleChoiceQuestions('allKeys');
+    print(multipleChoiceQuestions.length);
+    _writeItemsToJsonFile(multipleChoiceQuestions, 'multipleChoiceQuestions');
+  }
 
-  void _getTrueFalseItems() async {}
+  void _getTrueFalseItems() async {
+    List<TrueFalseQuestion> trueFalseQuestions = await amplify_controller.queryTrueFalseQuestions('allKeys');
+    print(trueFalseQuestions.length);
+    _writeItemsToJsonFile(trueFalseQuestions, 'trueFalseQuestions');
+  }
 
-  void _getDragAndDropItems() async {}
+  void _getDragAndDropItems() async {
+    List<DragAndDropQuestion> dragAndDropQuestions = await amplify_controller.queryDragAndDropQuestions('allKeys');
+    print(dragAndDropQuestions.length);
+    _writeItemsToJsonFile(dragAndDropQuestions, 'dragAndDropQuestions');
+  }
 
-  void _getOrderItemsItems() async {}
+  void _getOrderItemsItems() async {
+    List<OrderItemsExercise> orderItemsExercises = await amplify_controller.queryOrderItemsExercises('allKeys');
+    print(orderItemsExercises.length);
+    _writeItemsToJsonFile(orderItemsExercises, 'orderItemsExercises');
+  }
+
+  void _writeItemsToJsonFile(List<Model> items, String itemType) async {
+    String savePath = '/storage/emulated/0/Download/$itemType-production-bravo.json';  // only working on android
+    String allItemsJson = '';
+    for(Model item in items) {
+      // Old: String itemJsonString = item.toString();
+      Map<String, dynamic> itemJson = item.toJson();
+      String itemJsonString = json.encode(itemJson);
+      allItemsJson += '$itemJsonString\n';
+    }
+    print(allItemsJson);
+    File itemsFile = File(savePath);
+    itemsFile.writeAsString(allItemsJson);
+  }
 
 }

@@ -4,44 +4,19 @@ enum TileSize {
   LARGE
 }
 
-type SetsDetail {
-  SetsKey: String
-  feedback: String
-  exerciseTime: String
-  startingTime: String
-}
-
-type StudentSession @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  sessionID: String!
-  studySpaceId: String!
-  student: String!
-  sets: [SetsDetail]
-  setsQueue: [String]!
-  blackList: String!
-  active: String!
-  teacher: String!
-}
-
-type TeacherSession @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  studySpaceId: String!
-  teacher: String!
-}
-
 type OrderItemsExercise @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
-  items: [String!]!
+  exerciseSet: String!
   task: String!
   cloze: [String]
+  items: [String!]!
   falseItems: [String]
   hint: String!
 }
 
 type TrueFalseQuestion @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
+  exerciseSet: String!
   question: String!
   equation: String
   image: String
@@ -52,7 +27,7 @@ type TrueFalseQuestion @model @auth(rules: [{allow: public}]) {
 
 type DragAndDropQuestion @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
+  exerciseSet: String!
   question: String!
   typeListOne: Int!
   typeListTwo: Int!
@@ -67,7 +42,7 @@ type DragAndDropQuestion @model @auth(rules: [{allow: public}]) {
 
 type MultipleChoiceQuestion @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
+  exerciseSet: String!
   question: String!
   equation: String
   image: String
@@ -79,7 +54,7 @@ type MultipleChoiceQuestion @model @auth(rules: [{allow: public}]) {
 
 type SingleChoiceQuestion @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
+  exerciseSet: String!
   question: String!
   equation: String
   image: String
@@ -93,7 +68,7 @@ type SingleChoiceQuestion @model @auth(rules: [{allow: public}]) {
 
 type SingleImageChoiceQuestion @model @auth(rules: [{allow: public}]) {
   id: ID!
-  exerciseSets: [String!]!
+  exerciseSet: String!
   question: String!
   equation: String
   image0: String!
@@ -102,6 +77,16 @@ type SingleImageChoiceQuestion @model @auth(rules: [{allow: public}]) {
   image3: String
   hint: String!
   solution: String!
+}
+
+type ContentReferences @model @auth(rules: [{allow: public}]) {
+  contentKey: String! @primaryKey
+  singleChoiceQuestions: [String]
+  singleImageChoiceQuestions: [String]
+  multipleChoiceQuestions: [String]
+  trueFalseQuestions: [String]
+  dragAndDropQuestions: [String]
+  orderItemsExercises: [String]
 }
 
 type Feedback @model @auth(rules: [{allow: public}]) {

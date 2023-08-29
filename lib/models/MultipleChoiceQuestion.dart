@@ -29,7 +29,7 @@ import 'package:flutter/foundation.dart';
 class MultipleChoiceQuestion extends Model {
   static const classType = const _MultipleChoiceQuestionModelType();
   final String id;
-  final List<String>? _exerciseSets;
+  final String? _exerciseSet;
   final String? _question;
   final String? _equation;
   final String? _image;
@@ -53,9 +53,9 @@ class MultipleChoiceQuestion extends Model {
       );
   }
   
-  List<String> get exerciseSets {
+  String get exerciseSet {
     try {
-      return _exerciseSets!;
+      return _exerciseSet!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -147,12 +147,12 @@ class MultipleChoiceQuestion extends Model {
     return _updatedAt;
   }
   
-  const MultipleChoiceQuestion._internal({required this.id, required exerciseSets, required question, equation, image, required answers, required numCorrectAnswers, required hint, required solution, createdAt, updatedAt}): _exerciseSets = exerciseSets, _question = question, _equation = equation, _image = image, _answers = answers, _numCorrectAnswers = numCorrectAnswers, _hint = hint, _solution = solution, _createdAt = createdAt, _updatedAt = updatedAt;
+  const MultipleChoiceQuestion._internal({required this.id, required exerciseSet, required question, equation, image, required answers, required numCorrectAnswers, required hint, required solution, createdAt, updatedAt}): _exerciseSet = exerciseSet, _question = question, _equation = equation, _image = image, _answers = answers, _numCorrectAnswers = numCorrectAnswers, _hint = hint, _solution = solution, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory MultipleChoiceQuestion({String? id, required List<String> exerciseSets, required String question, String? equation, String? image, required List<String> answers, required int numCorrectAnswers, required String hint, required String solution}) {
+  factory MultipleChoiceQuestion({String? id, required String exerciseSet, required String question, String? equation, String? image, required List<String> answers, required int numCorrectAnswers, required String hint, required String solution}) {
     return MultipleChoiceQuestion._internal(
       id: id == null ? UUID.getUUID() : id,
-      exerciseSets: exerciseSets != null ? List<String>.unmodifiable(exerciseSets) : exerciseSets,
+      exerciseSet: exerciseSet,
       question: question,
       equation: equation,
       image: image,
@@ -171,7 +171,7 @@ class MultipleChoiceQuestion extends Model {
     if (identical(other, this)) return true;
     return other is MultipleChoiceQuestion &&
       id == other.id &&
-      DeepCollectionEquality().equals(_exerciseSets, other._exerciseSets) &&
+      _exerciseSet == other._exerciseSet &&
       _question == other._question &&
       _equation == other._equation &&
       _image == other._image &&
@@ -190,7 +190,7 @@ class MultipleChoiceQuestion extends Model {
     
     buffer.write("MultipleChoiceQuestion {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("exerciseSets=" + (_exerciseSets != null ? _exerciseSets!.toString() : "null") + ", ");
+    buffer.write("exerciseSet=" + "$_exerciseSet" + ", ");
     buffer.write("question=" + "$_question" + ", ");
     buffer.write("equation=" + "$_equation" + ", ");
     buffer.write("image=" + "$_image" + ", ");
@@ -205,10 +205,10 @@ class MultipleChoiceQuestion extends Model {
     return buffer.toString();
   }
   
-  MultipleChoiceQuestion copyWith({List<String>? exerciseSets, String? question, String? equation, String? image, List<String>? answers, int? numCorrectAnswers, String? hint, String? solution}) {
+  MultipleChoiceQuestion copyWith({String? exerciseSet, String? question, String? equation, String? image, List<String>? answers, int? numCorrectAnswers, String? hint, String? solution}) {
     return MultipleChoiceQuestion._internal(
       id: id,
-      exerciseSets: exerciseSets ?? this.exerciseSets,
+      exerciseSet: exerciseSet ?? this.exerciseSet,
       question: question ?? this.question,
       equation: equation ?? this.equation,
       image: image ?? this.image,
@@ -220,7 +220,7 @@ class MultipleChoiceQuestion extends Model {
   
   MultipleChoiceQuestion.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _exerciseSets = json['exerciseSets']?.cast<String>(),
+      _exerciseSet = json['exerciseSet'],
       _question = json['question'],
       _equation = json['equation'],
       _image = json['image'],
@@ -232,16 +232,16 @@ class MultipleChoiceQuestion extends Model {
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'equation': _equation, 'image': _image, 'answers': _answers, 'numCorrectAnswers': _numCorrectAnswers, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image': _image, 'answers': _answers, 'numCorrectAnswers': _numCorrectAnswers, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'question': _question, 'equation': _equation, 'image': _image, 'answers': _answers, 'numCorrectAnswers': _numCorrectAnswers, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image': _image, 'answers': _answers, 'numCorrectAnswers': _numCorrectAnswers, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryModelIdentifier<MultipleChoiceQuestionModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<MultipleChoiceQuestionModelIdentifier>();
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESETS = QueryField(fieldName: "exerciseSets");
+  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
   static final QueryField QUESTION = QueryField(fieldName: "question");
   static final QueryField EQUATION = QueryField(fieldName: "equation");
   static final QueryField IMAGE = QueryField(fieldName: "image");
@@ -267,10 +267,9 @@ class MultipleChoiceQuestion extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.EXERCISESETS,
+      key: MultipleChoiceQuestion.EXERCISESET,
       isRequired: true,
-      isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(

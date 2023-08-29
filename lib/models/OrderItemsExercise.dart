@@ -29,10 +29,10 @@ import 'package:flutter/foundation.dart';
 class OrderItemsExercise extends Model {
   static const classType = const _OrderItemsExerciseModelType();
   final String id;
-  final List<String>? _exerciseSets;
-  final List<String>? _items;
+  final String? _exerciseSet;
   final String? _task;
   final List<String>? _cloze;
+  final List<String>? _items;
   final List<String>? _falseItems;
   final String? _hint;
   final TemporalDateTime? _createdAt;
@@ -51,22 +51,9 @@ class OrderItemsExercise extends Model {
       );
   }
   
-  List<String> get exerciseSets {
+  String get exerciseSet {
     try {
-      return _exerciseSets!;
-    } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
-          recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
-          underlyingException: e.toString()
-          );
-    }
-  }
-  
-  List<String> get items {
-    try {
-      return _items!;
+      return _exerciseSet!;
     } catch(e) {
       throw new AmplifyCodeGenModelException(
           AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -94,6 +81,19 @@ class OrderItemsExercise extends Model {
     return _cloze;
   }
   
+  List<String> get items {
+    try {
+      return _items!;
+    } catch(e) {
+      throw new AmplifyCodeGenModelException(
+          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
   List<String>? get falseItems {
     return _falseItems;
   }
@@ -119,15 +119,15 @@ class OrderItemsExercise extends Model {
     return _updatedAt;
   }
   
-  const OrderItemsExercise._internal({required this.id, required exerciseSets, required items, required task, cloze, falseItems, required hint, createdAt, updatedAt}): _exerciseSets = exerciseSets, _items = items, _task = task, _cloze = cloze, _falseItems = falseItems, _hint = hint, _createdAt = createdAt, _updatedAt = updatedAt;
+  const OrderItemsExercise._internal({required this.id, required exerciseSet, required task, cloze, required items, falseItems, required hint, createdAt, updatedAt}): _exerciseSet = exerciseSet, _task = task, _cloze = cloze, _items = items, _falseItems = falseItems, _hint = hint, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory OrderItemsExercise({String? id, required List<String> exerciseSets, required List<String> items, required String task, List<String>? cloze, List<String>? falseItems, required String hint}) {
+  factory OrderItemsExercise({String? id, required String exerciseSet, required String task, List<String>? cloze, required List<String> items, List<String>? falseItems, required String hint}) {
     return OrderItemsExercise._internal(
       id: id == null ? UUID.getUUID() : id,
-      exerciseSets: exerciseSets != null ? List<String>.unmodifiable(exerciseSets) : exerciseSets,
-      items: items != null ? List<String>.unmodifiable(items) : items,
+      exerciseSet: exerciseSet,
       task: task,
       cloze: cloze != null ? List<String>.unmodifiable(cloze) : cloze,
+      items: items != null ? List<String>.unmodifiable(items) : items,
       falseItems: falseItems != null ? List<String>.unmodifiable(falseItems) : falseItems,
       hint: hint);
   }
@@ -141,10 +141,10 @@ class OrderItemsExercise extends Model {
     if (identical(other, this)) return true;
     return other is OrderItemsExercise &&
       id == other.id &&
-      DeepCollectionEquality().equals(_exerciseSets, other._exerciseSets) &&
-      DeepCollectionEquality().equals(_items, other._items) &&
+      _exerciseSet == other._exerciseSet &&
       _task == other._task &&
       DeepCollectionEquality().equals(_cloze, other._cloze) &&
+      DeepCollectionEquality().equals(_items, other._items) &&
       DeepCollectionEquality().equals(_falseItems, other._falseItems) &&
       _hint == other._hint;
   }
@@ -158,10 +158,10 @@ class OrderItemsExercise extends Model {
     
     buffer.write("OrderItemsExercise {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("exerciseSets=" + (_exerciseSets != null ? _exerciseSets!.toString() : "null") + ", ");
-    buffer.write("items=" + (_items != null ? _items!.toString() : "null") + ", ");
+    buffer.write("exerciseSet=" + "$_exerciseSet" + ", ");
     buffer.write("task=" + "$_task" + ", ");
     buffer.write("cloze=" + (_cloze != null ? _cloze!.toString() : "null") + ", ");
+    buffer.write("items=" + (_items != null ? _items!.toString() : "null") + ", ");
     buffer.write("falseItems=" + (_falseItems != null ? _falseItems!.toString() : "null") + ", ");
     buffer.write("hint=" + "$_hint" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
@@ -171,42 +171,42 @@ class OrderItemsExercise extends Model {
     return buffer.toString();
   }
   
-  OrderItemsExercise copyWith({List<String>? exerciseSets, List<String>? items, String? task, List<String>? cloze, List<String>? falseItems, String? hint}) {
+  OrderItemsExercise copyWith({String? exerciseSet, String? task, List<String>? cloze, List<String>? items, List<String>? falseItems, String? hint}) {
     return OrderItemsExercise._internal(
       id: id,
-      exerciseSets: exerciseSets ?? this.exerciseSets,
-      items: items ?? this.items,
+      exerciseSet: exerciseSet ?? this.exerciseSet,
       task: task ?? this.task,
       cloze: cloze ?? this.cloze,
+      items: items ?? this.items,
       falseItems: falseItems ?? this.falseItems,
       hint: hint ?? this.hint);
   }
   
   OrderItemsExercise.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _exerciseSets = json['exerciseSets']?.cast<String>(),
-      _items = json['items']?.cast<String>(),
+      _exerciseSet = json['exerciseSet'],
       _task = json['task'],
       _cloze = json['cloze']?.cast<String>(),
+      _items = json['items']?.cast<String>(),
       _falseItems = json['falseItems']?.cast<String>(),
       _hint = json['hint'],
       _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'items': _items, 'task': _task, 'cloze': _cloze, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'exerciseSet': _exerciseSet, 'task': _task, 'cloze': _cloze, 'items': _items, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSets': _exerciseSets, 'items': _items, 'task': _task, 'cloze': _cloze, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id, 'exerciseSet': _exerciseSet, 'task': _task, 'cloze': _cloze, 'items': _items, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt, 'updatedAt': _updatedAt
   };
 
   static final QueryModelIdentifier<OrderItemsExerciseModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<OrderItemsExerciseModelIdentifier>();
   static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESETS = QueryField(fieldName: "exerciseSets");
-  static final QueryField ITEMS = QueryField(fieldName: "items");
+  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
   static final QueryField TASK = QueryField(fieldName: "task");
   static final QueryField CLOZE = QueryField(fieldName: "cloze");
+  static final QueryField ITEMS = QueryField(fieldName: "items");
   static final QueryField FALSEITEMS = QueryField(fieldName: "falseItems");
   static final QueryField HINT = QueryField(fieldName: "hint");
   static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
@@ -227,17 +227,9 @@ class OrderItemsExercise extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: OrderItemsExercise.EXERCISESETS,
+      key: OrderItemsExercise.EXERCISESET,
       isRequired: true,
-      isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
-    ));
-    
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
-      key: OrderItemsExercise.ITEMS,
-      isRequired: true,
-      isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: ModelFieldType(ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
@@ -249,6 +241,13 @@ class OrderItemsExercise extends Model {
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
       key: OrderItemsExercise.CLOZE,
       isRequired: false,
+      isArray: true,
+      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+    ));
+    
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+      key: OrderItemsExercise.ITEMS,
+      isRequired: true,
       isArray: true,
       ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
     ));
