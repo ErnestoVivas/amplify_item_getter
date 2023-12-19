@@ -23,12 +23,11 @@ import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart' as amplify_core;
 
 
-/** This is an auto generated class representing the Feedback type in your schema. */
-class Feedback extends amplify_core.Model {
-  static const classType = const _FeedbackModelType();
-  final String id;
-  final String? _contentKey;
-  final String? _feedback;
+/** This is an auto generated class representing the GeneralAppData type in your schema. */
+class GeneralAppData extends amplify_core.Model {
+  static const classType = const _GeneralAppDataModelType();
+  final String? _key;
+  final String? _data;
   final amplify_core.TemporalDateTime? _createdAt;
   final amplify_core.TemporalDateTime? _updatedAt;
 
@@ -37,17 +36,13 @@ class Feedback extends amplify_core.Model {
   
   @Deprecated('[getId] is being deprecated in favor of custom primary key feature. Use getter [modelIdentifier] to get model identifier.')
   @override
-  String getId() => id;
+  String getId() => modelIdentifier.serializeAsString();
   
-  FeedbackModelIdentifier get modelIdentifier {
-      return FeedbackModelIdentifier(
-        id: id
-      );
-  }
-  
-  String get contentKey {
+  GeneralAppDataModelIdentifier get modelIdentifier {
     try {
-      return _contentKey!;
+      return GeneralAppDataModelIdentifier(
+        key: _key!
+      );
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -58,9 +53,22 @@ class Feedback extends amplify_core.Model {
     }
   }
   
-  String get feedback {
+  String get key {
     try {
-      return _feedback!;
+      return _key!;
+    } catch(e) {
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+          recoverySuggestion:
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+          underlyingException: e.toString()
+          );
+    }
+  }
+  
+  String get data {
+    try {
+      return _data!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -79,13 +87,12 @@ class Feedback extends amplify_core.Model {
     return _updatedAt;
   }
   
-  const Feedback._internal({required this.id, required contentKey, required feedback, createdAt, updatedAt}): _contentKey = contentKey, _feedback = feedback, _createdAt = createdAt, _updatedAt = updatedAt;
+  const GeneralAppData._internal({required key, required data, createdAt, updatedAt}): _key = key, _data = data, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Feedback({String? id, required String contentKey, required String feedback}) {
-    return Feedback._internal(
-      id: id == null ? amplify_core.UUID.getUUID() : id,
-      contentKey: contentKey,
-      feedback: feedback);
+  factory GeneralAppData({required String key, required String data}) {
+    return GeneralAppData._internal(
+      key: key,
+      data: data);
   }
   
   bool equals(Object other) {
@@ -95,10 +102,9 @@ class Feedback extends amplify_core.Model {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Feedback &&
-      id == other.id &&
-      _contentKey == other._contentKey &&
-      _feedback == other._feedback;
+    return other is GeneralAppData &&
+      _key == other._key &&
+      _data == other._data;
   }
   
   @override
@@ -108,10 +114,9 @@ class Feedback extends amplify_core.Model {
   String toString() {
     var buffer = new StringBuffer();
     
-    buffer.write("Feedback {");
-    buffer.write("id=" + "$id" + ", ");
-    buffer.write("contentKey=" + "$_contentKey" + ", ");
-    buffer.write("feedback=" + "$_feedback" + ", ");
+    buffer.write("GeneralAppData {");
+    buffer.write("key=" + "$_key" + ", ");
+    buffer.write("data=" + "$_data" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -119,50 +124,44 @@ class Feedback extends amplify_core.Model {
     return buffer.toString();
   }
   
-  Feedback copyWith({String? contentKey, String? feedback}) {
-    return Feedback._internal(
-      id: id,
-      contentKey: contentKey ?? this.contentKey,
-      feedback: feedback ?? this.feedback);
+  GeneralAppData copyWith({String? data}) {
+    return GeneralAppData._internal(
+      key: key,
+      data: data ?? this.data);
   }
   
-  Feedback copyWithModelFieldValues({
-    ModelFieldValue<String>? contentKey,
-    ModelFieldValue<String>? feedback
+  GeneralAppData copyWithModelFieldValues({
+    ModelFieldValue<String>? data
   }) {
-    return Feedback._internal(
-      id: id,
-      contentKey: contentKey == null ? this.contentKey : contentKey.value,
-      feedback: feedback == null ? this.feedback : feedback.value
+    return GeneralAppData._internal(
+      key: key,
+      data: data == null ? this.data : data.value
     );
   }
   
-  Feedback.fromJson(Map<String, dynamic> json)  
-    : id = json['id'],
-      _contentKey = json['contentKey'],
-      _feedback = json['feedback'],
+  GeneralAppData.fromJson(Map<String, dynamic> json)  
+    : _key = json['key'],
+      _data = json['data'],
       _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'contentKey': _contentKey, 'feedback': _feedback, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'key': _key, 'data': _data, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id,
-    'contentKey': _contentKey,
-    'feedback': _feedback,
+    'key': _key,
+    'data': _data,
     'createdAt': _createdAt,
     'updatedAt': _updatedAt
   };
 
-  static final amplify_core.QueryModelIdentifier<FeedbackModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<FeedbackModelIdentifier>();
-  static final ID = amplify_core.QueryField(fieldName: "id");
-  static final CONTENTKEY = amplify_core.QueryField(fieldName: "contentKey");
-  static final FEEDBACK = amplify_core.QueryField(fieldName: "feedback");
+  static final amplify_core.QueryModelIdentifier<GeneralAppDataModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<GeneralAppDataModelIdentifier>();
+  static final KEY = amplify_core.QueryField(fieldName: "key");
+  static final DATA = amplify_core.QueryField(fieldName: "data");
   static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
-    modelSchemaDefinition.name = "Feedback";
-    modelSchemaDefinition.pluralName = "Feedbacks";
+    modelSchemaDefinition.name = "GeneralAppData";
+    modelSchemaDefinition.pluralName = "GeneralAppData";
     
     modelSchemaDefinition.authRules = [
       amplify_core.AuthRule(
@@ -175,16 +174,18 @@ class Feedback extends amplify_core.Model {
         ])
     ];
     
-    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
+    modelSchemaDefinition.indexes = [
+      amplify_core.ModelIndex(fields: const ["key"], name: null)
+    ];
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: Feedback.CONTENTKEY,
+      key: GeneralAppData.KEY,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: Feedback.FEEDBACK,
+      key: GeneralAppData.DATA,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
@@ -205,34 +206,34 @@ class Feedback extends amplify_core.Model {
   });
 }
 
-class _FeedbackModelType extends amplify_core.ModelType<Feedback> {
-  const _FeedbackModelType();
+class _GeneralAppDataModelType extends amplify_core.ModelType<GeneralAppData> {
+  const _GeneralAppDataModelType();
   
   @override
-  Feedback fromJson(Map<String, dynamic> jsonData) {
-    return Feedback.fromJson(jsonData);
+  GeneralAppData fromJson(Map<String, dynamic> jsonData) {
+    return GeneralAppData.fromJson(jsonData);
   }
   
   @override
   String modelName() {
-    return 'Feedback';
+    return 'GeneralAppData';
   }
 }
 
 /**
  * This is an auto generated class representing the model identifier
- * of [Feedback] in your schema.
+ * of [GeneralAppData] in your schema.
  */
-class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> {
-  final String id;
+class GeneralAppDataModelIdentifier implements amplify_core.ModelIdentifier<GeneralAppData> {
+  final String key;
 
-  /** Create an instance of FeedbackModelIdentifier using [id] the primary key. */
-  const FeedbackModelIdentifier({
-    required this.id});
+  /** Create an instance of GeneralAppDataModelIdentifier using [key] the primary key. */
+  const GeneralAppDataModelIdentifier({
+    required this.key});
   
   @override
   Map<String, dynamic> serializeAsMap() => (<String, dynamic>{
-    'id': id
+    'key': key
   });
   
   @override
@@ -245,7 +246,7 @@ class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> 
   String serializeAsString() => serializeAsMap().values.join('#');
   
   @override
-  String toString() => 'FeedbackModelIdentifier(id: $id)';
+  String toString() => 'GeneralAppDataModelIdentifier(key: $key)';
   
   @override
   bool operator ==(Object other) {
@@ -253,11 +254,11 @@ class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> 
       return true;
     }
     
-    return other is FeedbackModelIdentifier &&
-      id == other.id;
+    return other is GeneralAppDataModelIdentifier &&
+      key == other.key;
   }
   
   @override
   int get hashCode =>
-    id.hashCode;
+    key.hashCode;
 }

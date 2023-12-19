@@ -4,6 +4,49 @@ enum TileSize {
   LARGE
 }
 
+type SetDetails {
+  setKey: String
+  feedback: String
+  startTime: String
+  finishTime: String
+}
+
+type GeneralAppData @model @auth(rules: [{allow: public}]) {
+  key: String! @primaryKey
+  data: String!
+}
+
+type StripeInformation @model @auth(rules: [{allow: public}]) {
+  stripeInfoId: String! @primaryKey
+  stripeSubscriptionKeyMonthlyPayment: String!
+  stripeSubscriptionKeyYearlyPayment: String!
+  stripeSubscriptionKeyAbiturPayment: String!
+  priceMonthly: String!
+  priceYearly: String!
+  priceAbitur: String!
+  labelMonthly: String!
+  labelYearly: String!
+  labelAbitur: String!
+  metadata: String
+}
+
+type StudyStreamStudent @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  studySpaceId: String!
+  sessionID: String!
+  studentName: String!
+  sets: [SetDetails]
+  setsQueue: [String]!
+  blackList: Boolean!
+  isActive: Boolean!
+}
+
+type StudyStreamTeacher @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  teacherName: String!
+  subject: String!
+}
+
 type OrderItemsExercise @model @auth(rules: [{allow: public}]) {
   id: ID!
   exerciseSet: String!

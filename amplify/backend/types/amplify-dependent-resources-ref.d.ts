@@ -7,16 +7,18 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "auth": {
-    "studyspacemobileappauth": {
+    "studyspaceappauth": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
+      "HostedUIDomain": "string",
+      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
   },
   "function": {
-    "studyspacemobileappauthPreSignup": {
+    "studyspaceappauthPreSignup": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

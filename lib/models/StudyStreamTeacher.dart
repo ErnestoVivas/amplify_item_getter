@@ -23,12 +23,12 @@ import 'ModelProvider.dart';
 import 'package:amplify_core/amplify_core.dart' as amplify_core;
 
 
-/** This is an auto generated class representing the Feedback type in your schema. */
-class Feedback extends amplify_core.Model {
-  static const classType = const _FeedbackModelType();
+/** This is an auto generated class representing the StudyStreamTeacher type in your schema. */
+class StudyStreamTeacher extends amplify_core.Model {
+  static const classType = const _StudyStreamTeacherModelType();
   final String id;
-  final String? _contentKey;
-  final String? _feedback;
+  final String? _teacherName;
+  final String? _subject;
   final amplify_core.TemporalDateTime? _createdAt;
   final amplify_core.TemporalDateTime? _updatedAt;
 
@@ -39,15 +39,15 @@ class Feedback extends amplify_core.Model {
   @override
   String getId() => id;
   
-  FeedbackModelIdentifier get modelIdentifier {
-      return FeedbackModelIdentifier(
+  StudyStreamTeacherModelIdentifier get modelIdentifier {
+      return StudyStreamTeacherModelIdentifier(
         id: id
       );
   }
   
-  String get contentKey {
+  String get teacherName {
     try {
-      return _contentKey!;
+      return _teacherName!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -58,9 +58,9 @@ class Feedback extends amplify_core.Model {
     }
   }
   
-  String get feedback {
+  String get subject {
     try {
-      return _feedback!;
+      return _subject!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -79,13 +79,13 @@ class Feedback extends amplify_core.Model {
     return _updatedAt;
   }
   
-  const Feedback._internal({required this.id, required contentKey, required feedback, createdAt, updatedAt}): _contentKey = contentKey, _feedback = feedback, _createdAt = createdAt, _updatedAt = updatedAt;
+  const StudyStreamTeacher._internal({required this.id, required teacherName, required subject, createdAt, updatedAt}): _teacherName = teacherName, _subject = subject, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory Feedback({String? id, required String contentKey, required String feedback}) {
-    return Feedback._internal(
+  factory StudyStreamTeacher({String? id, required String teacherName, required String subject}) {
+    return StudyStreamTeacher._internal(
       id: id == null ? amplify_core.UUID.getUUID() : id,
-      contentKey: contentKey,
-      feedback: feedback);
+      teacherName: teacherName,
+      subject: subject);
   }
   
   bool equals(Object other) {
@@ -95,10 +95,10 @@ class Feedback extends amplify_core.Model {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Feedback &&
+    return other is StudyStreamTeacher &&
       id == other.id &&
-      _contentKey == other._contentKey &&
-      _feedback == other._feedback;
+      _teacherName == other._teacherName &&
+      _subject == other._subject;
   }
   
   @override
@@ -108,10 +108,10 @@ class Feedback extends amplify_core.Model {
   String toString() {
     var buffer = new StringBuffer();
     
-    buffer.write("Feedback {");
+    buffer.write("StudyStreamTeacher {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("contentKey=" + "$_contentKey" + ", ");
-    buffer.write("feedback=" + "$_feedback" + ", ");
+    buffer.write("teacherName=" + "$_teacherName" + ", ");
+    buffer.write("subject=" + "$_subject" + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -119,50 +119,50 @@ class Feedback extends amplify_core.Model {
     return buffer.toString();
   }
   
-  Feedback copyWith({String? contentKey, String? feedback}) {
-    return Feedback._internal(
+  StudyStreamTeacher copyWith({String? teacherName, String? subject}) {
+    return StudyStreamTeacher._internal(
       id: id,
-      contentKey: contentKey ?? this.contentKey,
-      feedback: feedback ?? this.feedback);
+      teacherName: teacherName ?? this.teacherName,
+      subject: subject ?? this.subject);
   }
   
-  Feedback copyWithModelFieldValues({
-    ModelFieldValue<String>? contentKey,
-    ModelFieldValue<String>? feedback
+  StudyStreamTeacher copyWithModelFieldValues({
+    ModelFieldValue<String>? teacherName,
+    ModelFieldValue<String>? subject
   }) {
-    return Feedback._internal(
+    return StudyStreamTeacher._internal(
       id: id,
-      contentKey: contentKey == null ? this.contentKey : contentKey.value,
-      feedback: feedback == null ? this.feedback : feedback.value
+      teacherName: teacherName == null ? this.teacherName : teacherName.value,
+      subject: subject == null ? this.subject : subject.value
     );
   }
   
-  Feedback.fromJson(Map<String, dynamic> json)  
+  StudyStreamTeacher.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _contentKey = json['contentKey'],
-      _feedback = json['feedback'],
+      _teacherName = json['teacherName'],
+      _subject = json['subject'],
       _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'contentKey': _contentKey, 'feedback': _feedback, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'teacherName': _teacherName, 'subject': _subject, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
     'id': id,
-    'contentKey': _contentKey,
-    'feedback': _feedback,
+    'teacherName': _teacherName,
+    'subject': _subject,
     'createdAt': _createdAt,
     'updatedAt': _updatedAt
   };
 
-  static final amplify_core.QueryModelIdentifier<FeedbackModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<FeedbackModelIdentifier>();
+  static final amplify_core.QueryModelIdentifier<StudyStreamTeacherModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<StudyStreamTeacherModelIdentifier>();
   static final ID = amplify_core.QueryField(fieldName: "id");
-  static final CONTENTKEY = amplify_core.QueryField(fieldName: "contentKey");
-  static final FEEDBACK = amplify_core.QueryField(fieldName: "feedback");
+  static final TEACHERNAME = amplify_core.QueryField(fieldName: "teacherName");
+  static final SUBJECT = amplify_core.QueryField(fieldName: "subject");
   static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
-    modelSchemaDefinition.name = "Feedback";
-    modelSchemaDefinition.pluralName = "Feedbacks";
+    modelSchemaDefinition.name = "StudyStreamTeacher";
+    modelSchemaDefinition.pluralName = "StudyStreamTeachers";
     
     modelSchemaDefinition.authRules = [
       amplify_core.AuthRule(
@@ -178,13 +178,13 @@ class Feedback extends amplify_core.Model {
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: Feedback.CONTENTKEY,
+      key: StudyStreamTeacher.TEACHERNAME,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: Feedback.FEEDBACK,
+      key: StudyStreamTeacher.SUBJECT,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
@@ -205,29 +205,29 @@ class Feedback extends amplify_core.Model {
   });
 }
 
-class _FeedbackModelType extends amplify_core.ModelType<Feedback> {
-  const _FeedbackModelType();
+class _StudyStreamTeacherModelType extends amplify_core.ModelType<StudyStreamTeacher> {
+  const _StudyStreamTeacherModelType();
   
   @override
-  Feedback fromJson(Map<String, dynamic> jsonData) {
-    return Feedback.fromJson(jsonData);
+  StudyStreamTeacher fromJson(Map<String, dynamic> jsonData) {
+    return StudyStreamTeacher.fromJson(jsonData);
   }
   
   @override
   String modelName() {
-    return 'Feedback';
+    return 'StudyStreamTeacher';
   }
 }
 
 /**
  * This is an auto generated class representing the model identifier
- * of [Feedback] in your schema.
+ * of [StudyStreamTeacher] in your schema.
  */
-class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> {
+class StudyStreamTeacherModelIdentifier implements amplify_core.ModelIdentifier<StudyStreamTeacher> {
   final String id;
 
-  /** Create an instance of FeedbackModelIdentifier using [id] the primary key. */
-  const FeedbackModelIdentifier({
+  /** Create an instance of StudyStreamTeacherModelIdentifier using [id] the primary key. */
+  const StudyStreamTeacherModelIdentifier({
     required this.id});
   
   @override
@@ -245,7 +245,7 @@ class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> 
   String serializeAsString() => serializeAsMap().values.join('#');
   
   @override
-  String toString() => 'FeedbackModelIdentifier(id: $id)';
+  String toString() => 'StudyStreamTeacherModelIdentifier(id: $id)';
   
   @override
   bool operator ==(Object other) {
@@ -253,7 +253,7 @@ class FeedbackModelIdentifier implements amplify_core.ModelIdentifier<Feedback> 
       return true;
     }
     
-    return other is FeedbackModelIdentifier &&
+    return other is StudyStreamTeacherModelIdentifier &&
       id == other.id;
   }
   

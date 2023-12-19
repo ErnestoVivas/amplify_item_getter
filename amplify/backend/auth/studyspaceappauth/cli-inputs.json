@@ -1,8 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "studysfe592f14",
-    "userPoolName": "studyspace-mobile-app-users",
+    "resourceNameTruncated": "studysa3ab2552",
+    "userPoolName": "studyspace-app-users",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -12,32 +12,32 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "studyspace App Verifizierungscode",
-    "emailVerificationMessage": "Dein Verifizierungscode ist {####}.",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": true,
-    "passwordPolicyMinLength": "8",
+    "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-      "preferred_username"
+      "email"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
-    "userpoolClientRefreshTokenValidity": "365",
+    "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-      "email",
-      "preferred_username"
+      "preferred_username",
+      "email"
     ],
     "userpoolClientReadAttributes": [
       "email",
       "preferred_username",
       "email_verified"
     ],
-    "userpoolClientLambdaRole": "studysfe592f14_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "studysa3ab2552_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
-    "sharedId": "fe592f14",
-    "resourceName": "studyspacemobileappauth",
+    "sharedId": "a3ab2552",
+    "resourceName": "studyspaceappauth",
     "authSelections": "userPoolOnly",
-    "useDefault": "manual",
+    "useDefault": "defaultSocial",
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {
@@ -45,7 +45,7 @@
         "custom"
       ]
     },
-    "hostedUI": false,
+    "hostedUI": true,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
@@ -66,7 +66,7 @@
     "dependsOn": [
       {
         "category": "function",
-        "resourceName": "studyspacemobileappauthPreSignup",
+        "resourceName": "studyspaceappauthPreSignup",
         "triggerProvider": "Cognito",
         "attributes": [
           "Arn",
@@ -75,10 +75,17 @@
       }
     ],
     "permissions": [],
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"studyspacemobileappauthPreSignup\"\n  }\n]",
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"studyspaceappauthPreSignup\"\n  }\n]",
+    "hostedUIDomainName": "studyspacemobileapp38341c90-38341c90",
+    "authProvidersUserPool": [
+      "Google",
+      "SignInWithApple"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}},{\"ProviderName\":\"SignInWithApple\",\"authorize_scopes\":\"email\",\"AttributeMapping\":{\"email\":\"email\"}}]",
     "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
-    }
+    },
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"studyspace://\"],\"LogoutURLs\":[\"studyspace://\"]}"
   }
-}  
+}

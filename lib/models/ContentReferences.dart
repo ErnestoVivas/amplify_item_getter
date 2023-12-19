@@ -19,14 +19,13 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'package:amplify_core/amplify_core.dart';
+import 'ModelProvider.dart';
+import 'package:amplify_core/amplify_core.dart' as amplify_core;
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 
 
 /** This is an auto generated class representing the ContentReferences type in your schema. */
-@immutable
-class ContentReferences extends Model {
+class ContentReferences extends amplify_core.Model {
   static const classType = const _ContentReferencesModelType();
   final String? _contentKey;
   final List<String>? _singleChoiceQuestions;
@@ -35,8 +34,8 @@ class ContentReferences extends Model {
   final List<String>? _trueFalseQuestions;
   final List<String>? _dragAndDropQuestions;
   final List<String>? _orderItemsExercises;
-  final TemporalDateTime? _createdAt;
-  final TemporalDateTime? _updatedAt;
+  final amplify_core.TemporalDateTime? _createdAt;
+  final amplify_core.TemporalDateTime? _updatedAt;
 
   @override
   getInstanceType() => classType;
@@ -51,10 +50,10 @@ class ContentReferences extends Model {
         contentKey: _contentKey!
       );
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -64,10 +63,10 @@ class ContentReferences extends Model {
     try {
       return _contentKey!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -97,11 +96,11 @@ class ContentReferences extends Model {
     return _orderItemsExercises;
   }
   
-  TemporalDateTime? get createdAt {
+  amplify_core.TemporalDateTime? get createdAt {
     return _createdAt;
   }
   
-  TemporalDateTime? get updatedAt {
+  amplify_core.TemporalDateTime? get updatedAt {
     return _updatedAt;
   }
   
@@ -168,6 +167,25 @@ class ContentReferences extends Model {
       orderItemsExercises: orderItemsExercises ?? this.orderItemsExercises);
   }
   
+  ContentReferences copyWithModelFieldValues({
+    ModelFieldValue<List<String>?>? singleChoiceQuestions,
+    ModelFieldValue<List<String>?>? singleImageChoiceQuestions,
+    ModelFieldValue<List<String>?>? multipleChoiceQuestions,
+    ModelFieldValue<List<String>?>? trueFalseQuestions,
+    ModelFieldValue<List<String>?>? dragAndDropQuestions,
+    ModelFieldValue<List<String>?>? orderItemsExercises
+  }) {
+    return ContentReferences._internal(
+      contentKey: contentKey,
+      singleChoiceQuestions: singleChoiceQuestions == null ? this.singleChoiceQuestions : singleChoiceQuestions.value,
+      singleImageChoiceQuestions: singleImageChoiceQuestions == null ? this.singleImageChoiceQuestions : singleImageChoiceQuestions.value,
+      multipleChoiceQuestions: multipleChoiceQuestions == null ? this.multipleChoiceQuestions : multipleChoiceQuestions.value,
+      trueFalseQuestions: trueFalseQuestions == null ? this.trueFalseQuestions : trueFalseQuestions.value,
+      dragAndDropQuestions: dragAndDropQuestions == null ? this.dragAndDropQuestions : dragAndDropQuestions.value,
+      orderItemsExercises: orderItemsExercises == null ? this.orderItemsExercises : orderItemsExercises.value
+    );
+  }
+  
   ContentReferences.fromJson(Map<String, dynamic> json)  
     : _contentKey = json['contentKey'],
       _singleChoiceQuestions = json['singleChoiceQuestions']?.cast<String>(),
@@ -176,109 +194,117 @@ class ContentReferences extends Model {
       _trueFalseQuestions = json['trueFalseQuestions']?.cast<String>(),
       _dragAndDropQuestions = json['dragAndDropQuestions']?.cast<String>(),
       _orderItemsExercises = json['orderItemsExercises']?.cast<String>(),
-      _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
+      _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
     'contentKey': _contentKey, 'singleChoiceQuestions': _singleChoiceQuestions, 'singleImageChoiceQuestions': _singleImageChoiceQuestions, 'multipleChoiceQuestions': _multipleChoiceQuestions, 'trueFalseQuestions': _trueFalseQuestions, 'dragAndDropQuestions': _dragAndDropQuestions, 'orderItemsExercises': _orderItemsExercises, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'contentKey': _contentKey, 'singleChoiceQuestions': _singleChoiceQuestions, 'singleImageChoiceQuestions': _singleImageChoiceQuestions, 'multipleChoiceQuestions': _multipleChoiceQuestions, 'trueFalseQuestions': _trueFalseQuestions, 'dragAndDropQuestions': _dragAndDropQuestions, 'orderItemsExercises': _orderItemsExercises, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'contentKey': _contentKey,
+    'singleChoiceQuestions': _singleChoiceQuestions,
+    'singleImageChoiceQuestions': _singleImageChoiceQuestions,
+    'multipleChoiceQuestions': _multipleChoiceQuestions,
+    'trueFalseQuestions': _trueFalseQuestions,
+    'dragAndDropQuestions': _dragAndDropQuestions,
+    'orderItemsExercises': _orderItemsExercises,
+    'createdAt': _createdAt,
+    'updatedAt': _updatedAt
   };
 
-  static final QueryModelIdentifier<ContentReferencesModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<ContentReferencesModelIdentifier>();
-  static final QueryField CONTENTKEY = QueryField(fieldName: "contentKey");
-  static final QueryField SINGLECHOICEQUESTIONS = QueryField(fieldName: "singleChoiceQuestions");
-  static final QueryField SINGLEIMAGECHOICEQUESTIONS = QueryField(fieldName: "singleImageChoiceQuestions");
-  static final QueryField MULTIPLECHOICEQUESTIONS = QueryField(fieldName: "multipleChoiceQuestions");
-  static final QueryField TRUEFALSEQUESTIONS = QueryField(fieldName: "trueFalseQuestions");
-  static final QueryField DRAGANDDROPQUESTIONS = QueryField(fieldName: "dragAndDropQuestions");
-  static final QueryField ORDERITEMSEXERCISES = QueryField(fieldName: "orderItemsExercises");
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+  static final amplify_core.QueryModelIdentifier<ContentReferencesModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<ContentReferencesModelIdentifier>();
+  static final CONTENTKEY = amplify_core.QueryField(fieldName: "contentKey");
+  static final SINGLECHOICEQUESTIONS = amplify_core.QueryField(fieldName: "singleChoiceQuestions");
+  static final SINGLEIMAGECHOICEQUESTIONS = amplify_core.QueryField(fieldName: "singleImageChoiceQuestions");
+  static final MULTIPLECHOICEQUESTIONS = amplify_core.QueryField(fieldName: "multipleChoiceQuestions");
+  static final TRUEFALSEQUESTIONS = amplify_core.QueryField(fieldName: "trueFalseQuestions");
+  static final DRAGANDDROPQUESTIONS = amplify_core.QueryField(fieldName: "dragAndDropQuestions");
+  static final ORDERITEMSEXERCISES = amplify_core.QueryField(fieldName: "orderItemsExercises");
+  static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "ContentReferences";
     modelSchemaDefinition.pluralName = "ContentReferences";
     
     modelSchemaDefinition.authRules = [
-      AuthRule(
-        authStrategy: AuthStrategy.PUBLIC,
-        operations: [
-          ModelOperation.CREATE,
-          ModelOperation.UPDATE,
-          ModelOperation.DELETE,
-          ModelOperation.READ
+      amplify_core.AuthRule(
+        authStrategy: amplify_core.AuthStrategy.PUBLIC,
+        operations: const [
+          amplify_core.ModelOperation.CREATE,
+          amplify_core.ModelOperation.UPDATE,
+          amplify_core.ModelOperation.DELETE,
+          amplify_core.ModelOperation.READ
         ])
     ];
     
     modelSchemaDefinition.indexes = [
-      ModelIndex(fields: const ["contentKey"], name: null)
+      amplify_core.ModelIndex(fields: const ["contentKey"], name: null)
     ];
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.CONTENTKEY,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.SINGLECHOICEQUESTIONS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.SINGLEIMAGECHOICEQUESTIONS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.MULTIPLECHOICEQUESTIONS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.TRUEFALSEQUESTIONS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.DRAGANDDROPQUESTIONS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: ContentReferences.ORDERITEMSEXERCISES,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'createdAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'updatedAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
   });
 }
 
-class _ContentReferencesModelType extends ModelType<ContentReferences> {
+class _ContentReferencesModelType extends amplify_core.ModelType<ContentReferences> {
   const _ContentReferencesModelType();
   
   @override
@@ -296,8 +322,7 @@ class _ContentReferencesModelType extends ModelType<ContentReferences> {
  * This is an auto generated class representing the model identifier
  * of [ContentReferences] in your schema.
  */
-@immutable
-class ContentReferencesModelIdentifier implements ModelIdentifier<ContentReferences> {
+class ContentReferencesModelIdentifier implements amplify_core.ModelIdentifier<ContentReferences> {
   final String contentKey;
 
   /** Create an instance of ContentReferencesModelIdentifier using [contentKey] the primary key. */

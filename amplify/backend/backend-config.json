@@ -23,7 +23,7 @@
     }
   },
   "auth": {
-    "studyspacemobileappauth": {
+    "studyspaceappauth": {
       "customAuth": false,
       "dependsOn": [
         {
@@ -32,7 +32,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "studyspacemobileappauthPreSignup",
+          "resourceName": "studyspaceappauthPreSignup",
           "triggerProvider": "Cognito"
         }
       ],
@@ -43,12 +43,15 @@
         ],
         "passwordProtectionSettings": {
           "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": "8"
+          "passwordPolicyMinLength": 8
         },
         "signupAttributes": [
-          "PREFERRED_USERNAME"
+          "EMAIL"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE",
+          "APPLE"
+        ],
         "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
@@ -59,13 +62,29 @@
     }
   },
   "function": {
-    "studyspacemobileappauthPreSignup": {
+    "studyspaceappauthPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
+    "AMPLIFY_function_studyspaceappauthPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studyspaceappauthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_studyspaceappauthPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "studyspaceappauthPreSignup"
+        }
+      ]
+    },
     "AMPLIFY_function_studyspacemobileappauthPreSignup_deploymentBucketName": {
       "usedBy": [
         {

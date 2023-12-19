@@ -19,14 +19,13 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'package:amplify_core/amplify_core.dart';
+import 'ModelProvider.dart';
+import 'package:amplify_core/amplify_core.dart' as amplify_core;
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 
 
 /** This is an auto generated class representing the OrderItemsExercise type in your schema. */
-@immutable
-class OrderItemsExercise extends Model {
+class OrderItemsExercise extends amplify_core.Model {
   static const classType = const _OrderItemsExerciseModelType();
   final String id;
   final String? _exerciseSet;
@@ -35,8 +34,8 @@ class OrderItemsExercise extends Model {
   final List<String>? _items;
   final List<String>? _falseItems;
   final String? _hint;
-  final TemporalDateTime? _createdAt;
-  final TemporalDateTime? _updatedAt;
+  final amplify_core.TemporalDateTime? _createdAt;
+  final amplify_core.TemporalDateTime? _updatedAt;
 
   @override
   getInstanceType() => classType;
@@ -55,10 +54,10 @@ class OrderItemsExercise extends Model {
     try {
       return _exerciseSet!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -68,10 +67,10 @@ class OrderItemsExercise extends Model {
     try {
       return _task!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -85,10 +84,10 @@ class OrderItemsExercise extends Model {
     try {
       return _items!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -102,20 +101,20 @@ class OrderItemsExercise extends Model {
     try {
       return _hint!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
   }
   
-  TemporalDateTime? get createdAt {
+  amplify_core.TemporalDateTime? get createdAt {
     return _createdAt;
   }
   
-  TemporalDateTime? get updatedAt {
+  amplify_core.TemporalDateTime? get updatedAt {
     return _updatedAt;
   }
   
@@ -123,7 +122,7 @@ class OrderItemsExercise extends Model {
   
   factory OrderItemsExercise({String? id, required String exerciseSet, required String task, List<String>? cloze, required List<String> items, List<String>? falseItems, required String hint}) {
     return OrderItemsExercise._internal(
-      id: id == null ? UUID.getUUID() : id,
+      id: id == null ? amplify_core.UUID.getUUID() : id,
       exerciseSet: exerciseSet,
       task: task,
       cloze: cloze != null ? List<String>.unmodifiable(cloze) : cloze,
@@ -182,6 +181,25 @@ class OrderItemsExercise extends Model {
       hint: hint ?? this.hint);
   }
   
+  OrderItemsExercise copyWithModelFieldValues({
+    ModelFieldValue<String>? exerciseSet,
+    ModelFieldValue<String>? task,
+    ModelFieldValue<List<String>?>? cloze,
+    ModelFieldValue<List<String>>? items,
+    ModelFieldValue<List<String>?>? falseItems,
+    ModelFieldValue<String>? hint
+  }) {
+    return OrderItemsExercise._internal(
+      id: id,
+      exerciseSet: exerciseSet == null ? this.exerciseSet : exerciseSet.value,
+      task: task == null ? this.task : task.value,
+      cloze: cloze == null ? this.cloze : cloze.value,
+      items: items == null ? this.items : items.value,
+      falseItems: falseItems == null ? this.falseItems : falseItems.value,
+      hint: hint == null ? this.hint : hint.value
+    );
+  }
+  
   OrderItemsExercise.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _exerciseSet = json['exerciseSet'],
@@ -190,98 +208,106 @@ class OrderItemsExercise extends Model {
       _items = json['items']?.cast<String>(),
       _falseItems = json['falseItems']?.cast<String>(),
       _hint = json['hint'],
-      _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
+      _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
     'id': id, 'exerciseSet': _exerciseSet, 'task': _task, 'cloze': _cloze, 'items': _items, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSet': _exerciseSet, 'task': _task, 'cloze': _cloze, 'items': _items, 'falseItems': _falseItems, 'hint': _hint, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id,
+    'exerciseSet': _exerciseSet,
+    'task': _task,
+    'cloze': _cloze,
+    'items': _items,
+    'falseItems': _falseItems,
+    'hint': _hint,
+    'createdAt': _createdAt,
+    'updatedAt': _updatedAt
   };
 
-  static final QueryModelIdentifier<OrderItemsExerciseModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<OrderItemsExerciseModelIdentifier>();
-  static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
-  static final QueryField TASK = QueryField(fieldName: "task");
-  static final QueryField CLOZE = QueryField(fieldName: "cloze");
-  static final QueryField ITEMS = QueryField(fieldName: "items");
-  static final QueryField FALSEITEMS = QueryField(fieldName: "falseItems");
-  static final QueryField HINT = QueryField(fieldName: "hint");
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+  static final amplify_core.QueryModelIdentifier<OrderItemsExerciseModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<OrderItemsExerciseModelIdentifier>();
+  static final ID = amplify_core.QueryField(fieldName: "id");
+  static final EXERCISESET = amplify_core.QueryField(fieldName: "exerciseSet");
+  static final TASK = amplify_core.QueryField(fieldName: "task");
+  static final CLOZE = amplify_core.QueryField(fieldName: "cloze");
+  static final ITEMS = amplify_core.QueryField(fieldName: "items");
+  static final FALSEITEMS = amplify_core.QueryField(fieldName: "falseItems");
+  static final HINT = amplify_core.QueryField(fieldName: "hint");
+  static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "OrderItemsExercise";
     modelSchemaDefinition.pluralName = "OrderItemsExercises";
     
     modelSchemaDefinition.authRules = [
-      AuthRule(
-        authStrategy: AuthStrategy.PUBLIC,
-        operations: [
-          ModelOperation.CREATE,
-          ModelOperation.UPDATE,
-          ModelOperation.DELETE,
-          ModelOperation.READ
+      amplify_core.AuthRule(
+        authStrategy: amplify_core.AuthStrategy.PUBLIC,
+        operations: const [
+          amplify_core.ModelOperation.CREATE,
+          amplify_core.ModelOperation.UPDATE,
+          amplify_core.ModelOperation.DELETE,
+          amplify_core.ModelOperation.READ
         ])
     ];
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.id());
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.EXERCISESET,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.TASK,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.CLOZE,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.ITEMS,
       isRequired: true,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.FALSEITEMS,
       isRequired: false,
       isArray: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.collection, ofModelName: describeEnum(ModelFieldTypeEnum.string))
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: OrderItemsExercise.HINT,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'createdAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'updatedAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
   });
 }
 
-class _OrderItemsExerciseModelType extends ModelType<OrderItemsExercise> {
+class _OrderItemsExerciseModelType extends amplify_core.ModelType<OrderItemsExercise> {
   const _OrderItemsExerciseModelType();
   
   @override
@@ -299,8 +325,7 @@ class _OrderItemsExerciseModelType extends ModelType<OrderItemsExercise> {
  * This is an auto generated class representing the model identifier
  * of [OrderItemsExercise] in your schema.
  */
-@immutable
-class OrderItemsExerciseModelIdentifier implements ModelIdentifier<OrderItemsExercise> {
+class OrderItemsExerciseModelIdentifier implements amplify_core.ModelIdentifier<OrderItemsExercise> {
   final String id;
 
   /** Create an instance of OrderItemsExerciseModelIdentifier using [id] the primary key. */

@@ -51,7 +51,7 @@ Future<List<SingleChoiceQuestion>> querySingleChoiceQuestions(String queryKey) a
   try {
     singleChoiceQuestions = await Amplify.DataStore.query(
       SingleChoiceQuestion.classType,
-      //where: SingleChoiceQuestion.EXERCISESETS.contains(queryKey)
+      where: SingleChoiceQuestion.EXERCISESET.contains(queryKey)
     );
     print('Queried sc questions');
   } on DataStoreException catch (e) {
@@ -66,7 +66,7 @@ Future<List<SingleImageChoiceQuestion>> querySingleImageChoiceQuestions(String q
   try {
     singleImageChoiceQuestions = await Amplify.DataStore.query(
       SingleImageChoiceQuestion.classType,
-      //where: SingleImageChoiceQuestion.EXERCISESETS.contains(queryKey),
+      where: SingleImageChoiceQuestion.EXERCISESET.contains(queryKey),
     );
   } on DataStoreException catch (e) {
     singleImageChoiceQuestions = [];
@@ -80,7 +80,7 @@ Future<List<MultipleChoiceQuestion>> queryMultipleChoiceQuestions(String queryKe
   try {
     multipleChoiceQuestions = await Amplify.DataStore.query(
       MultipleChoiceQuestion.classType,
-      //where: MultipleChoiceQuestion.EXERCISESETS.contains(queryKey),
+      where: MultipleChoiceQuestion.EXERCISESET.contains(queryKey),
     );
   } on DataStoreException catch (e) {
     multipleChoiceQuestions = [];
@@ -94,7 +94,7 @@ Future<List<TrueFalseQuestion>> queryTrueFalseQuestions(String queryKey) async {
   try {
     trueFalseQuestions = await Amplify.DataStore.query(
       TrueFalseQuestion.classType,
-      //where: TrueFalseQuestion.EXERCISESETS.contains(queryKey),
+      where: TrueFalseQuestion.EXERCISESET.contains(queryKey),
     );
   } on DataStoreException catch (e) {
     trueFalseQuestions = [];
@@ -108,7 +108,7 @@ Future<List<DragAndDropQuestion>> queryDragAndDropQuestions(String queryKey) asy
   try {
     dragAndDropQuestions = await Amplify.DataStore.query(
       DragAndDropQuestion.classType,
-      //where: DragAndDropQuestion.EXERCISESETS.contains(queryKey),
+      where: DragAndDropQuestion.EXERCISESET.contains(queryKey),
     );
   } on DataStoreException catch (e) {
     dragAndDropQuestions = [];
@@ -122,7 +122,7 @@ Future<List<OrderItemsExercise>> queryOrderItemsExercises(String queryKey) async
   try {
     orderItemsExercises = await Amplify.DataStore.query(
       OrderItemsExercise.classType,
-      //where: OrderItemsExercise.EXERCISESETS.contains(queryKey),
+      where: OrderItemsExercise.EXERCISESET.contains(queryKey),
     );
   } on DataStoreException catch (e) {
     orderItemsExercises = [];

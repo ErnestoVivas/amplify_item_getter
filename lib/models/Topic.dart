@@ -20,13 +20,11 @@
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
 import 'ModelProvider.dart';
-import 'package:amplify_core/amplify_core.dart';
-import 'package:flutter/foundation.dart';
+import 'package:amplify_core/amplify_core.dart' as amplify_core;
 
 
 /** This is an auto generated class representing the Topic type in your schema. */
-@immutable
-class Topic extends Model {
+class Topic extends amplify_core.Model {
   static const classType = const _TopicModelType();
   final String id;
   final String? _path;
@@ -36,8 +34,8 @@ class Topic extends Model {
   final bool? _isGroupLabel;
   final String? _icon;
   final TopicCategories? _categories;
-  final TemporalDateTime? _createdAt;
-  final TemporalDateTime? _updatedAt;
+  final amplify_core.TemporalDateTime? _createdAt;
+  final amplify_core.TemporalDateTime? _updatedAt;
 
   @override
   getInstanceType() => classType;
@@ -56,10 +54,10 @@ class Topic extends Model {
     try {
       return _path!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -69,10 +67,10 @@ class Topic extends Model {
     try {
       return _key!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -82,10 +80,10 @@ class Topic extends Model {
     try {
       return _name!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -95,10 +93,10 @@ class Topic extends Model {
     try {
       return _index!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -108,10 +106,10 @@ class Topic extends Model {
     try {
       return _isGroupLabel!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -125,20 +123,20 @@ class Topic extends Model {
     try {
       return _categories!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
   }
   
-  TemporalDateTime? get createdAt {
+  amplify_core.TemporalDateTime? get createdAt {
     return _createdAt;
   }
   
-  TemporalDateTime? get updatedAt {
+  amplify_core.TemporalDateTime? get updatedAt {
     return _updatedAt;
   }
   
@@ -146,7 +144,7 @@ class Topic extends Model {
   
   factory Topic({String? id, required String path, required int key, required String name, required int index, required bool isGroupLabel, String? icon, required TopicCategories categories}) {
     return Topic._internal(
-      id: id == null ? UUID.getUUID() : id,
+      id: id == null ? amplify_core.UUID.getUUID() : id,
       path: path,
       key: key,
       name: name,
@@ -209,6 +207,27 @@ class Topic extends Model {
       categories: categories ?? this.categories);
   }
   
+  Topic copyWithModelFieldValues({
+    ModelFieldValue<String>? path,
+    ModelFieldValue<int>? key,
+    ModelFieldValue<String>? name,
+    ModelFieldValue<int>? index,
+    ModelFieldValue<bool>? isGroupLabel,
+    ModelFieldValue<String?>? icon,
+    ModelFieldValue<TopicCategories>? categories
+  }) {
+    return Topic._internal(
+      id: id,
+      path: path == null ? this.path : path.value,
+      key: key == null ? this.key : key.value,
+      name: name == null ? this.name : name.value,
+      index: index == null ? this.index : index.value,
+      isGroupLabel: isGroupLabel == null ? this.isGroupLabel : isGroupLabel.value,
+      icon: icon == null ? this.icon : icon.value,
+      categories: categories == null ? this.categories : categories.value
+    );
+  }
+  
   Topic.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _path = json['path'],
@@ -220,102 +239,111 @@ class Topic extends Model {
       _categories = json['categories']?['serializedData'] != null
         ? TopicCategories.fromJson(new Map<String, dynamic>.from(json['categories']['serializedData']))
         : null,
-      _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
+      _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
     'id': id, 'path': _path, 'key': _key, 'name': _name, 'index': _index, 'isGroupLabel': _isGroupLabel, 'icon': _icon, 'categories': _categories?.toJson(), 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'path': _path, 'key': _key, 'name': _name, 'index': _index, 'isGroupLabel': _isGroupLabel, 'icon': _icon, 'categories': _categories, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id,
+    'path': _path,
+    'key': _key,
+    'name': _name,
+    'index': _index,
+    'isGroupLabel': _isGroupLabel,
+    'icon': _icon,
+    'categories': _categories,
+    'createdAt': _createdAt,
+    'updatedAt': _updatedAt
   };
 
-  static final QueryModelIdentifier<TopicModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<TopicModelIdentifier>();
-  static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField PATH = QueryField(fieldName: "path");
-  static final QueryField KEY = QueryField(fieldName: "key");
-  static final QueryField NAME = QueryField(fieldName: "name");
-  static final QueryField INDEX = QueryField(fieldName: "index");
-  static final QueryField ISGROUPLABEL = QueryField(fieldName: "isGroupLabel");
-  static final QueryField ICON = QueryField(fieldName: "icon");
-  static final QueryField CATEGORIES = QueryField(fieldName: "categories");
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+  static final amplify_core.QueryModelIdentifier<TopicModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<TopicModelIdentifier>();
+  static final ID = amplify_core.QueryField(fieldName: "id");
+  static final PATH = amplify_core.QueryField(fieldName: "path");
+  static final KEY = amplify_core.QueryField(fieldName: "key");
+  static final NAME = amplify_core.QueryField(fieldName: "name");
+  static final INDEX = amplify_core.QueryField(fieldName: "index");
+  static final ISGROUPLABEL = amplify_core.QueryField(fieldName: "isGroupLabel");
+  static final ICON = amplify_core.QueryField(fieldName: "icon");
+  static final CATEGORIES = amplify_core.QueryField(fieldName: "categories");
+  static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Topic";
     modelSchemaDefinition.pluralName = "Topics";
     
     modelSchemaDefinition.authRules = [
-      AuthRule(
-        authStrategy: AuthStrategy.PUBLIC,
-        operations: [
-          ModelOperation.CREATE,
-          ModelOperation.UPDATE,
-          ModelOperation.DELETE,
-          ModelOperation.READ
+      amplify_core.AuthRule(
+        authStrategy: amplify_core.AuthStrategy.PUBLIC,
+        operations: const [
+          amplify_core.ModelOperation.CREATE,
+          amplify_core.ModelOperation.UPDATE,
+          amplify_core.ModelOperation.DELETE,
+          amplify_core.ModelOperation.READ
         ])
     ];
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.id());
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.PATH,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.KEY,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.int)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.int)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.NAME,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.INDEX,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.int)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.int)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.ISGROUPLABEL,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: Topic.ICON,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.embedded(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.embedded(
       fieldName: 'categories',
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.embedded, ofCustomTypeName: 'TopicCategories')
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.embedded, ofCustomTypeName: 'TopicCategories')
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'createdAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'updatedAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
   });
 }
 
-class _TopicModelType extends ModelType<Topic> {
+class _TopicModelType extends amplify_core.ModelType<Topic> {
   const _TopicModelType();
   
   @override
@@ -333,8 +361,7 @@ class _TopicModelType extends ModelType<Topic> {
  * This is an auto generated class representing the model identifier
  * of [Topic] in your schema.
  */
-@immutable
-class TopicModelIdentifier implements ModelIdentifier<Topic> {
+class TopicModelIdentifier implements amplify_core.ModelIdentifier<Topic> {
   final String id;
 
   /** Create an instance of TopicModelIdentifier using [id] the primary key. */

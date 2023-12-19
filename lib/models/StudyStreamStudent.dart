@@ -24,18 +24,17 @@ import 'package:amplify_core/amplify_core.dart' as amplify_core;
 import 'package:collection/collection.dart';
 
 
-/** This is an auto generated class representing the MultipleChoiceQuestion type in your schema. */
-class MultipleChoiceQuestion extends amplify_core.Model {
-  static const classType = const _MultipleChoiceQuestionModelType();
+/** This is an auto generated class representing the StudyStreamStudent type in your schema. */
+class StudyStreamStudent extends amplify_core.Model {
+  static const classType = const _StudyStreamStudentModelType();
   final String id;
-  final String? _exerciseSet;
-  final String? _question;
-  final String? _equation;
-  final String? _image;
-  final List<String>? _answers;
-  final int? _numCorrectAnswers;
-  final String? _hint;
-  final String? _solution;
+  final String? _studySpaceId;
+  final String? _sessionID;
+  final String? _studentName;
+  final List<SetDetails>? _sets;
+  final List<String>? _setsQueue;
+  final bool? _blackList;
+  final bool? _isActive;
   final amplify_core.TemporalDateTime? _createdAt;
   final amplify_core.TemporalDateTime? _updatedAt;
 
@@ -46,15 +45,15 @@ class MultipleChoiceQuestion extends amplify_core.Model {
   @override
   String getId() => id;
   
-  MultipleChoiceQuestionModelIdentifier get modelIdentifier {
-      return MultipleChoiceQuestionModelIdentifier(
+  StudyStreamStudentModelIdentifier get modelIdentifier {
+      return StudyStreamStudentModelIdentifier(
         id: id
       );
   }
   
-  String get exerciseSet {
+  String get studySpaceId {
     try {
-      return _exerciseSet!;
+      return _studySpaceId!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -65,9 +64,9 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     }
   }
   
-  String get question {
+  String get sessionID {
     try {
-      return _question!;
+      return _sessionID!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -78,17 +77,9 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     }
   }
   
-  String? get equation {
-    return _equation;
-  }
-  
-  String? get image {
-    return _image;
-  }
-  
-  List<String> get answers {
+  String get studentName {
     try {
-      return _answers!;
+      return _studentName!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -99,9 +90,13 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     }
   }
   
-  int get numCorrectAnswers {
+  List<SetDetails>? get sets {
+    return _sets;
+  }
+  
+  List<String> get setsQueue {
     try {
-      return _numCorrectAnswers!;
+      return _setsQueue!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -112,9 +107,9 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     }
   }
   
-  String get hint {
+  bool get blackList {
     try {
-      return _hint!;
+      return _blackList!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -125,9 +120,9 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     }
   }
   
-  String get solution {
+  bool get isActive {
     try {
-      return _solution!;
+      return _isActive!;
     } catch(e) {
       throw amplify_core.AmplifyCodeGenModelException(
           amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
@@ -146,19 +141,18 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     return _updatedAt;
   }
   
-  const MultipleChoiceQuestion._internal({required this.id, required exerciseSet, required question, equation, image, required answers, required numCorrectAnswers, required hint, required solution, createdAt, updatedAt}): _exerciseSet = exerciseSet, _question = question, _equation = equation, _image = image, _answers = answers, _numCorrectAnswers = numCorrectAnswers, _hint = hint, _solution = solution, _createdAt = createdAt, _updatedAt = updatedAt;
+  const StudyStreamStudent._internal({required this.id, required studySpaceId, required sessionID, required studentName, sets, required setsQueue, required blackList, required isActive, createdAt, updatedAt}): _studySpaceId = studySpaceId, _sessionID = sessionID, _studentName = studentName, _sets = sets, _setsQueue = setsQueue, _blackList = blackList, _isActive = isActive, _createdAt = createdAt, _updatedAt = updatedAt;
   
-  factory MultipleChoiceQuestion({String? id, required String exerciseSet, required String question, String? equation, String? image, required List<String> answers, required int numCorrectAnswers, required String hint, required String solution}) {
-    return MultipleChoiceQuestion._internal(
+  factory StudyStreamStudent({String? id, required String studySpaceId, required String sessionID, required String studentName, List<SetDetails>? sets, required List<String> setsQueue, required bool blackList, required bool isActive}) {
+    return StudyStreamStudent._internal(
       id: id == null ? amplify_core.UUID.getUUID() : id,
-      exerciseSet: exerciseSet,
-      question: question,
-      equation: equation,
-      image: image,
-      answers: answers != null ? List<String>.unmodifiable(answers) : answers,
-      numCorrectAnswers: numCorrectAnswers,
-      hint: hint,
-      solution: solution);
+      studySpaceId: studySpaceId,
+      sessionID: sessionID,
+      studentName: studentName,
+      sets: sets != null ? List<SetDetails>.unmodifiable(sets) : sets,
+      setsQueue: setsQueue != null ? List<String>.unmodifiable(setsQueue) : setsQueue,
+      blackList: blackList,
+      isActive: isActive);
   }
   
   bool equals(Object other) {
@@ -168,16 +162,15 @@ class MultipleChoiceQuestion extends amplify_core.Model {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is MultipleChoiceQuestion &&
+    return other is StudyStreamStudent &&
       id == other.id &&
-      _exerciseSet == other._exerciseSet &&
-      _question == other._question &&
-      _equation == other._equation &&
-      _image == other._image &&
-      DeepCollectionEquality().equals(_answers, other._answers) &&
-      _numCorrectAnswers == other._numCorrectAnswers &&
-      _hint == other._hint &&
-      _solution == other._solution;
+      _studySpaceId == other._studySpaceId &&
+      _sessionID == other._sessionID &&
+      _studentName == other._studentName &&
+      DeepCollectionEquality().equals(_sets, other._sets) &&
+      DeepCollectionEquality().equals(_setsQueue, other._setsQueue) &&
+      _blackList == other._blackList &&
+      _isActive == other._isActive;
   }
   
   @override
@@ -187,16 +180,15 @@ class MultipleChoiceQuestion extends amplify_core.Model {
   String toString() {
     var buffer = new StringBuffer();
     
-    buffer.write("MultipleChoiceQuestion {");
+    buffer.write("StudyStreamStudent {");
     buffer.write("id=" + "$id" + ", ");
-    buffer.write("exerciseSet=" + "$_exerciseSet" + ", ");
-    buffer.write("question=" + "$_question" + ", ");
-    buffer.write("equation=" + "$_equation" + ", ");
-    buffer.write("image=" + "$_image" + ", ");
-    buffer.write("answers=" + (_answers != null ? _answers!.toString() : "null") + ", ");
-    buffer.write("numCorrectAnswers=" + (_numCorrectAnswers != null ? _numCorrectAnswers!.toString() : "null") + ", ");
-    buffer.write("hint=" + "$_hint" + ", ");
-    buffer.write("solution=" + "$_solution" + ", ");
+    buffer.write("studySpaceId=" + "$_studySpaceId" + ", ");
+    buffer.write("sessionID=" + "$_sessionID" + ", ");
+    buffer.write("studentName=" + "$_studentName" + ", ");
+    buffer.write("sets=" + (_sets != null ? _sets!.toString() : "null") + ", ");
+    buffer.write("setsQueue=" + (_setsQueue != null ? _setsQueue!.toString() : "null") + ", ");
+    buffer.write("blackList=" + (_blackList != null ? _blackList!.toString() : "null") + ", ");
+    buffer.write("isActive=" + (_isActive != null ? _isActive!.toString() : "null") + ", ");
     buffer.write("createdAt=" + (_createdAt != null ? _createdAt!.format() : "null") + ", ");
     buffer.write("updatedAt=" + (_updatedAt != null ? _updatedAt!.format() : "null"));
     buffer.write("}");
@@ -204,86 +196,85 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     return buffer.toString();
   }
   
-  MultipleChoiceQuestion copyWith({String? exerciseSet, String? question, String? equation, String? image, List<String>? answers, int? numCorrectAnswers, String? hint, String? solution}) {
-    return MultipleChoiceQuestion._internal(
+  StudyStreamStudent copyWith({String? studySpaceId, String? sessionID, String? studentName, List<SetDetails>? sets, List<String>? setsQueue, bool? blackList, bool? isActive}) {
+    return StudyStreamStudent._internal(
       id: id,
-      exerciseSet: exerciseSet ?? this.exerciseSet,
-      question: question ?? this.question,
-      equation: equation ?? this.equation,
-      image: image ?? this.image,
-      answers: answers ?? this.answers,
-      numCorrectAnswers: numCorrectAnswers ?? this.numCorrectAnswers,
-      hint: hint ?? this.hint,
-      solution: solution ?? this.solution);
+      studySpaceId: studySpaceId ?? this.studySpaceId,
+      sessionID: sessionID ?? this.sessionID,
+      studentName: studentName ?? this.studentName,
+      sets: sets ?? this.sets,
+      setsQueue: setsQueue ?? this.setsQueue,
+      blackList: blackList ?? this.blackList,
+      isActive: isActive ?? this.isActive);
   }
   
-  MultipleChoiceQuestion copyWithModelFieldValues({
-    ModelFieldValue<String>? exerciseSet,
-    ModelFieldValue<String>? question,
-    ModelFieldValue<String?>? equation,
-    ModelFieldValue<String?>? image,
-    ModelFieldValue<List<String>>? answers,
-    ModelFieldValue<int>? numCorrectAnswers,
-    ModelFieldValue<String>? hint,
-    ModelFieldValue<String>? solution
+  StudyStreamStudent copyWithModelFieldValues({
+    ModelFieldValue<String>? studySpaceId,
+    ModelFieldValue<String>? sessionID,
+    ModelFieldValue<String>? studentName,
+    ModelFieldValue<List<SetDetails>?>? sets,
+    ModelFieldValue<List<String>?>? setsQueue,
+    ModelFieldValue<bool>? blackList,
+    ModelFieldValue<bool>? isActive
   }) {
-    return MultipleChoiceQuestion._internal(
+    return StudyStreamStudent._internal(
       id: id,
-      exerciseSet: exerciseSet == null ? this.exerciseSet : exerciseSet.value,
-      question: question == null ? this.question : question.value,
-      equation: equation == null ? this.equation : equation.value,
-      image: image == null ? this.image : image.value,
-      answers: answers == null ? this.answers : answers.value,
-      numCorrectAnswers: numCorrectAnswers == null ? this.numCorrectAnswers : numCorrectAnswers.value,
-      hint: hint == null ? this.hint : hint.value,
-      solution: solution == null ? this.solution : solution.value
+      studySpaceId: studySpaceId == null ? this.studySpaceId : studySpaceId.value,
+      sessionID: sessionID == null ? this.sessionID : sessionID.value,
+      studentName: studentName == null ? this.studentName : studentName.value,
+      sets: sets == null ? this.sets : sets.value,
+      setsQueue: setsQueue == null ? this.setsQueue : setsQueue.value,
+      blackList: blackList == null ? this.blackList : blackList.value,
+      isActive: isActive == null ? this.isActive : isActive.value
     );
   }
   
-  MultipleChoiceQuestion.fromJson(Map<String, dynamic> json)  
+  StudyStreamStudent.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
-      _exerciseSet = json['exerciseSet'],
-      _question = json['question'],
-      _equation = json['equation'],
-      _image = json['image'],
-      _answers = json['answers']?.cast<String>(),
-      _numCorrectAnswers = (json['numCorrectAnswers'] as num?)?.toInt(),
-      _hint = json['hint'],
-      _solution = json['solution'],
+      _studySpaceId = json['studySpaceId'],
+      _sessionID = json['sessionID'],
+      _studentName = json['studentName'],
+      _sets = json['sets'] is List
+        ? (json['sets'] as List)
+          .where((e) => e != null)
+          .map((e) => SetDetails.fromJson(new Map<String, dynamic>.from(e['serializedData'])))
+          .toList()
+        : null,
+      _setsQueue = json['setsQueue']?.cast<String>(),
+      _blackList = json['blackList'],
+      _isActive = json['isActive'],
       _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
       _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
-    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image': _image, 'answers': _answers, 'numCorrectAnswers': _numCorrectAnswers, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
+    'id': id, 'studySpaceId': _studySpaceId, 'sessionID': _sessionID, 'studentName': _studentName, 'sets': _sets?.map((SetDetails? e) => e?.toJson()).toList(), 'setsQueue': _setsQueue, 'blackList': _blackList, 'isActive': _isActive, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
     'id': id,
-    'exerciseSet': _exerciseSet,
-    'question': _question,
-    'equation': _equation,
-    'image': _image,
-    'answers': _answers,
-    'numCorrectAnswers': _numCorrectAnswers,
-    'hint': _hint,
-    'solution': _solution,
+    'studySpaceId': _studySpaceId,
+    'sessionID': _sessionID,
+    'studentName': _studentName,
+    'sets': _sets,
+    'setsQueue': _setsQueue,
+    'blackList': _blackList,
+    'isActive': _isActive,
     'createdAt': _createdAt,
     'updatedAt': _updatedAt
   };
 
-  static final amplify_core.QueryModelIdentifier<MultipleChoiceQuestionModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<MultipleChoiceQuestionModelIdentifier>();
+  static final amplify_core.QueryModelIdentifier<StudyStreamStudentModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<StudyStreamStudentModelIdentifier>();
   static final ID = amplify_core.QueryField(fieldName: "id");
-  static final EXERCISESET = amplify_core.QueryField(fieldName: "exerciseSet");
-  static final QUESTION = amplify_core.QueryField(fieldName: "question");
-  static final EQUATION = amplify_core.QueryField(fieldName: "equation");
-  static final IMAGE = amplify_core.QueryField(fieldName: "image");
-  static final ANSWERS = amplify_core.QueryField(fieldName: "answers");
-  static final NUMCORRECTANSWERS = amplify_core.QueryField(fieldName: "numCorrectAnswers");
-  static final HINT = amplify_core.QueryField(fieldName: "hint");
-  static final SOLUTION = amplify_core.QueryField(fieldName: "solution");
+  static final STUDYSPACEID = amplify_core.QueryField(fieldName: "studySpaceId");
+  static final SESSIONID = amplify_core.QueryField(fieldName: "sessionID");
+  static final STUDENTNAME = amplify_core.QueryField(fieldName: "studentName");
+  static final SETS = amplify_core.QueryField(fieldName: "sets");
+  static final SETSQUEUE = amplify_core.QueryField(fieldName: "setsQueue");
+  static final BLACKLIST = amplify_core.QueryField(fieldName: "blackList");
+  static final ISACTIVE = amplify_core.QueryField(fieldName: "isActive");
   static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
-    modelSchemaDefinition.name = "MultipleChoiceQuestion";
-    modelSchemaDefinition.pluralName = "MultipleChoiceQuestions";
+    modelSchemaDefinition.name = "StudyStreamStudent";
+    modelSchemaDefinition.pluralName = "StudyStreamStudents";
     
     modelSchemaDefinition.authRules = [
       amplify_core.AuthRule(
@@ -299,52 +290,47 @@ class MultipleChoiceQuestion extends amplify_core.Model {
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.EXERCISESET,
+      key: StudyStreamStudent.STUDYSPACEID,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.QUESTION,
+      key: StudyStreamStudent.SESSIONID,
       isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.EQUATION,
-      isRequired: false,
+      key: StudyStreamStudent.STUDENTNAME,
+      isRequired: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.IMAGE,
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.embedded(
+      fieldName: 'sets',
       isRequired: false,
-      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
+      isArray: true,
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.embeddedCollection, ofCustomTypeName: 'SetDetails')
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.ANSWERS,
+      key: StudyStreamStudent.SETSQUEUE,
       isRequired: true,
       isArray: true,
       ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.collection, ofModelName: amplify_core.ModelFieldTypeEnum.string.name)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.NUMCORRECTANSWERS,
+      key: StudyStreamStudent.BLACKLIST,
       isRequired: true,
-      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.int)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.HINT,
+      key: StudyStreamStudent.ISACTIVE,
       isRequired: true,
-      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
-    ));
-    
-    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
-      key: MultipleChoiceQuestion.SOLUTION,
-      isRequired: true,
-      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
     modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
@@ -363,29 +349,29 @@ class MultipleChoiceQuestion extends amplify_core.Model {
   });
 }
 
-class _MultipleChoiceQuestionModelType extends amplify_core.ModelType<MultipleChoiceQuestion> {
-  const _MultipleChoiceQuestionModelType();
+class _StudyStreamStudentModelType extends amplify_core.ModelType<StudyStreamStudent> {
+  const _StudyStreamStudentModelType();
   
   @override
-  MultipleChoiceQuestion fromJson(Map<String, dynamic> jsonData) {
-    return MultipleChoiceQuestion.fromJson(jsonData);
+  StudyStreamStudent fromJson(Map<String, dynamic> jsonData) {
+    return StudyStreamStudent.fromJson(jsonData);
   }
   
   @override
   String modelName() {
-    return 'MultipleChoiceQuestion';
+    return 'StudyStreamStudent';
   }
 }
 
 /**
  * This is an auto generated class representing the model identifier
- * of [MultipleChoiceQuestion] in your schema.
+ * of [StudyStreamStudent] in your schema.
  */
-class MultipleChoiceQuestionModelIdentifier implements amplify_core.ModelIdentifier<MultipleChoiceQuestion> {
+class StudyStreamStudentModelIdentifier implements amplify_core.ModelIdentifier<StudyStreamStudent> {
   final String id;
 
-  /** Create an instance of MultipleChoiceQuestionModelIdentifier using [id] the primary key. */
-  const MultipleChoiceQuestionModelIdentifier({
+  /** Create an instance of StudyStreamStudentModelIdentifier using [id] the primary key. */
+  const StudyStreamStudentModelIdentifier({
     required this.id});
   
   @override
@@ -403,7 +389,7 @@ class MultipleChoiceQuestionModelIdentifier implements amplify_core.ModelIdentif
   String serializeAsString() => serializeAsMap().values.join('#');
   
   @override
-  String toString() => 'MultipleChoiceQuestionModelIdentifier(id: $id)';
+  String toString() => 'StudyStreamStudentModelIdentifier(id: $id)';
   
   @override
   bool operator ==(Object other) {
@@ -411,7 +397,7 @@ class MultipleChoiceQuestionModelIdentifier implements amplify_core.ModelIdentif
       return true;
     }
     
-    return other is MultipleChoiceQuestionModelIdentifier &&
+    return other is StudyStreamStudentModelIdentifier &&
       id == other.id;
   }
   

@@ -19,13 +19,12 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'package:amplify_core/amplify_core.dart';
-import 'package:flutter/foundation.dart';
+import 'ModelProvider.dart';
+import 'package:amplify_core/amplify_core.dart' as amplify_core;
 
 
 /** This is an auto generated class representing the SingleImageChoiceQuestion type in your schema. */
-@immutable
-class SingleImageChoiceQuestion extends Model {
+class SingleImageChoiceQuestion extends amplify_core.Model {
   static const classType = const _SingleImageChoiceQuestionModelType();
   final String id;
   final String? _exerciseSet;
@@ -37,8 +36,8 @@ class SingleImageChoiceQuestion extends Model {
   final String? _image3;
   final String? _hint;
   final String? _solution;
-  final TemporalDateTime? _createdAt;
-  final TemporalDateTime? _updatedAt;
+  final amplify_core.TemporalDateTime? _createdAt;
+  final amplify_core.TemporalDateTime? _updatedAt;
 
   @override
   getInstanceType() => classType;
@@ -57,10 +56,10 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _exerciseSet!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -70,10 +69,10 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _question!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -87,10 +86,10 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _image0!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -100,10 +99,10 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _image1!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -121,10 +120,10 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _hint!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
@@ -134,20 +133,20 @@ class SingleImageChoiceQuestion extends Model {
     try {
       return _solution!;
     } catch(e) {
-      throw new AmplifyCodeGenModelException(
-          AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
+      throw amplify_core.AmplifyCodeGenModelException(
+          amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastExceptionMessage,
           recoverySuggestion:
-            AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
+            amplify_core.AmplifyExceptionMessages.codeGenRequiredFieldForceCastRecoverySuggestion,
           underlyingException: e.toString()
           );
     }
   }
   
-  TemporalDateTime? get createdAt {
+  amplify_core.TemporalDateTime? get createdAt {
     return _createdAt;
   }
   
-  TemporalDateTime? get updatedAt {
+  amplify_core.TemporalDateTime? get updatedAt {
     return _updatedAt;
   }
   
@@ -155,7 +154,7 @@ class SingleImageChoiceQuestion extends Model {
   
   factory SingleImageChoiceQuestion({String? id, required String exerciseSet, required String question, String? equation, required String image0, required String image1, String? image2, String? image3, required String hint, required String solution}) {
     return SingleImageChoiceQuestion._internal(
-      id: id == null ? UUID.getUUID() : id,
+      id: id == null ? amplify_core.UUID.getUUID() : id,
       exerciseSet: exerciseSet,
       question: question,
       equation: equation,
@@ -226,6 +225,31 @@ class SingleImageChoiceQuestion extends Model {
       solution: solution ?? this.solution);
   }
   
+  SingleImageChoiceQuestion copyWithModelFieldValues({
+    ModelFieldValue<String>? exerciseSet,
+    ModelFieldValue<String>? question,
+    ModelFieldValue<String?>? equation,
+    ModelFieldValue<String>? image0,
+    ModelFieldValue<String>? image1,
+    ModelFieldValue<String?>? image2,
+    ModelFieldValue<String?>? image3,
+    ModelFieldValue<String>? hint,
+    ModelFieldValue<String>? solution
+  }) {
+    return SingleImageChoiceQuestion._internal(
+      id: id,
+      exerciseSet: exerciseSet == null ? this.exerciseSet : exerciseSet.value,
+      question: question == null ? this.question : question.value,
+      equation: equation == null ? this.equation : equation.value,
+      image0: image0 == null ? this.image0 : image0.value,
+      image1: image1 == null ? this.image1 : image1.value,
+      image2: image2 == null ? this.image2 : image2.value,
+      image3: image3 == null ? this.image3 : image3.value,
+      hint: hint == null ? this.hint : hint.value,
+      solution: solution == null ? this.solution : solution.value
+    );
+  }
+  
   SingleImageChoiceQuestion.fromJson(Map<String, dynamic> json)  
     : id = json['id'],
       _exerciseSet = json['exerciseSet'],
@@ -237,116 +261,127 @@ class SingleImageChoiceQuestion extends Model {
       _image3 = json['image3'],
       _hint = json['hint'],
       _solution = json['solution'],
-      _createdAt = json['createdAt'] != null ? TemporalDateTime.fromString(json['createdAt']) : null,
-      _updatedAt = json['updatedAt'] != null ? TemporalDateTime.fromString(json['updatedAt']) : null;
+      _createdAt = json['createdAt'] != null ? amplify_core.TemporalDateTime.fromString(json['createdAt']) : null,
+      _updatedAt = json['updatedAt'] != null ? amplify_core.TemporalDateTime.fromString(json['updatedAt']) : null;
   
   Map<String, dynamic> toJson() => {
     'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image0': _image0, 'image1': _image1, 'image2': _image2, 'image3': _image3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt?.format(), 'updatedAt': _updatedAt?.format()
   };
   
   Map<String, Object?> toMap() => {
-    'id': id, 'exerciseSet': _exerciseSet, 'question': _question, 'equation': _equation, 'image0': _image0, 'image1': _image1, 'image2': _image2, 'image3': _image3, 'hint': _hint, 'solution': _solution, 'createdAt': _createdAt, 'updatedAt': _updatedAt
+    'id': id,
+    'exerciseSet': _exerciseSet,
+    'question': _question,
+    'equation': _equation,
+    'image0': _image0,
+    'image1': _image1,
+    'image2': _image2,
+    'image3': _image3,
+    'hint': _hint,
+    'solution': _solution,
+    'createdAt': _createdAt,
+    'updatedAt': _updatedAt
   };
 
-  static final QueryModelIdentifier<SingleImageChoiceQuestionModelIdentifier> MODEL_IDENTIFIER = QueryModelIdentifier<SingleImageChoiceQuestionModelIdentifier>();
-  static final QueryField ID = QueryField(fieldName: "id");
-  static final QueryField EXERCISESET = QueryField(fieldName: "exerciseSet");
-  static final QueryField QUESTION = QueryField(fieldName: "question");
-  static final QueryField EQUATION = QueryField(fieldName: "equation");
-  static final QueryField IMAGE0 = QueryField(fieldName: "image0");
-  static final QueryField IMAGE1 = QueryField(fieldName: "image1");
-  static final QueryField IMAGE2 = QueryField(fieldName: "image2");
-  static final QueryField IMAGE3 = QueryField(fieldName: "image3");
-  static final QueryField HINT = QueryField(fieldName: "hint");
-  static final QueryField SOLUTION = QueryField(fieldName: "solution");
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+  static final amplify_core.QueryModelIdentifier<SingleImageChoiceQuestionModelIdentifier> MODEL_IDENTIFIER = amplify_core.QueryModelIdentifier<SingleImageChoiceQuestionModelIdentifier>();
+  static final ID = amplify_core.QueryField(fieldName: "id");
+  static final EXERCISESET = amplify_core.QueryField(fieldName: "exerciseSet");
+  static final QUESTION = amplify_core.QueryField(fieldName: "question");
+  static final EQUATION = amplify_core.QueryField(fieldName: "equation");
+  static final IMAGE0 = amplify_core.QueryField(fieldName: "image0");
+  static final IMAGE1 = amplify_core.QueryField(fieldName: "image1");
+  static final IMAGE2 = amplify_core.QueryField(fieldName: "image2");
+  static final IMAGE3 = amplify_core.QueryField(fieldName: "image3");
+  static final HINT = amplify_core.QueryField(fieldName: "hint");
+  static final SOLUTION = amplify_core.QueryField(fieldName: "solution");
+  static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "SingleImageChoiceQuestion";
     modelSchemaDefinition.pluralName = "SingleImageChoiceQuestions";
     
     modelSchemaDefinition.authRules = [
-      AuthRule(
-        authStrategy: AuthStrategy.PUBLIC,
-        operations: [
-          ModelOperation.CREATE,
-          ModelOperation.UPDATE,
-          ModelOperation.DELETE,
-          ModelOperation.READ
+      amplify_core.AuthRule(
+        authStrategy: amplify_core.AuthStrategy.PUBLIC,
+        operations: const [
+          amplify_core.ModelOperation.CREATE,
+          amplify_core.ModelOperation.UPDATE,
+          amplify_core.ModelOperation.DELETE,
+          amplify_core.ModelOperation.READ
         ])
     ];
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.id());
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.id());
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.EXERCISESET,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.QUESTION,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.EQUATION,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.IMAGE0,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.IMAGE1,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.IMAGE2,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.IMAGE3,
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.HINT,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.field(
       key: SingleImageChoiceQuestion.SOLUTION,
       isRequired: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.string)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.string)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'createdAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.nonQueryField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.nonQueryField(
       fieldName: 'updatedAt',
       isRequired: false,
       isReadOnly: true,
-      ofType: ModelFieldType(ModelFieldTypeEnum.dateTime)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.dateTime)
     ));
   });
 }
 
-class _SingleImageChoiceQuestionModelType extends ModelType<SingleImageChoiceQuestion> {
+class _SingleImageChoiceQuestionModelType extends amplify_core.ModelType<SingleImageChoiceQuestion> {
   const _SingleImageChoiceQuestionModelType();
   
   @override
@@ -364,8 +399,7 @@ class _SingleImageChoiceQuestionModelType extends ModelType<SingleImageChoiceQue
  * This is an auto generated class representing the model identifier
  * of [SingleImageChoiceQuestion] in your schema.
  */
-@immutable
-class SingleImageChoiceQuestionModelIdentifier implements ModelIdentifier<SingleImageChoiceQuestion> {
+class SingleImageChoiceQuestionModelIdentifier implements amplify_core.ModelIdentifier<SingleImageChoiceQuestion> {
   final String id;
 
   /** Create an instance of SingleImageChoiceQuestionModelIdentifier using [id] the primary key. */

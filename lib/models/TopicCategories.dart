@@ -19,12 +19,11 @@
 
 // ignore_for_file: public_member_api_docs, annotate_overrides, dead_code, dead_codepublic_member_api_docs, depend_on_referenced_packages, file_names, library_private_types_in_public_api, no_leading_underscores_for_library_prefixes, no_leading_underscores_for_local_identifiers, non_constant_identifier_names, null_check_on_nullable_type_parameter, prefer_adjacent_string_concatenation, prefer_const_constructors, prefer_if_null_operators, prefer_interpolation_to_compose_strings, slash_for_doc_comments, sort_child_properties_last, unnecessary_const, unnecessary_constructor_name, unnecessary_late, unnecessary_new, unnecessary_null_aware_assignments, unnecessary_nullable_for_final_variable_declarations, unnecessary_string_interpolations, use_build_context_synchronously
 
-import 'package:amplify_core/amplify_core.dart';
-import 'package:flutter/foundation.dart';
+import 'ModelProvider.dart';
+import 'package:amplify_core/amplify_core.dart' as amplify_core;
 
 
 /** This is an auto generated class representing the TopicCategories type in your schema. */
-@immutable
 class TopicCategories {
   final bool? _grade5;
   final bool? _grade6;
@@ -186,6 +185,40 @@ class TopicCategories {
       lk: lk ?? this.lk);
   }
   
+  TopicCategories copyWithModelFieldValues({
+    ModelFieldValue<bool?>? grade5,
+    ModelFieldValue<bool?>? grade6,
+    ModelFieldValue<bool?>? grade7,
+    ModelFieldValue<bool?>? grade8,
+    ModelFieldValue<bool?>? grade9,
+    ModelFieldValue<bool?>? grade10,
+    ModelFieldValue<bool?>? grade11,
+    ModelFieldValue<bool?>? grade12,
+    ModelFieldValue<bool?>? grade13,
+    ModelFieldValue<bool?>? realschule,
+    ModelFieldValue<bool?>? gesamtschule,
+    ModelFieldValue<bool?>? gymnasium,
+    ModelFieldValue<bool?>? gk,
+    ModelFieldValue<bool?>? lk
+  }) {
+    return TopicCategories._internal(
+      grade5: grade5 == null ? this.grade5 : grade5.value,
+      grade6: grade6 == null ? this.grade6 : grade6.value,
+      grade7: grade7 == null ? this.grade7 : grade7.value,
+      grade8: grade8 == null ? this.grade8 : grade8.value,
+      grade9: grade9 == null ? this.grade9 : grade9.value,
+      grade10: grade10 == null ? this.grade10 : grade10.value,
+      grade11: grade11 == null ? this.grade11 : grade11.value,
+      grade12: grade12 == null ? this.grade12 : grade12.value,
+      grade13: grade13 == null ? this.grade13 : grade13.value,
+      realschule: realschule == null ? this.realschule : realschule.value,
+      gesamtschule: gesamtschule == null ? this.gesamtschule : gesamtschule.value,
+      gymnasium: gymnasium == null ? this.gymnasium : gymnasium.value,
+      gk: gk == null ? this.gk : gk.value,
+      lk: lk == null ? this.lk : lk.value
+    );
+  }
+  
   TopicCategories.fromJson(Map<String, dynamic> json)  
     : _grade5 = json['grade5'],
       _grade6 = json['grade6'],
@@ -207,95 +240,108 @@ class TopicCategories {
   };
   
   Map<String, Object?> toMap() => {
-    'grade5': _grade5, 'grade6': _grade6, 'grade7': _grade7, 'grade8': _grade8, 'grade9': _grade9, 'grade10': _grade10, 'grade11': _grade11, 'grade12': _grade12, 'grade13': _grade13, 'realschule': _realschule, 'gesamtschule': _gesamtschule, 'gymnasium': _gymnasium, 'gk': _gk, 'lk': _lk
+    'grade5': _grade5,
+    'grade6': _grade6,
+    'grade7': _grade7,
+    'grade8': _grade8,
+    'grade9': _grade9,
+    'grade10': _grade10,
+    'grade11': _grade11,
+    'grade12': _grade12,
+    'grade13': _grade13,
+    'realschule': _realschule,
+    'gesamtschule': _gesamtschule,
+    'gymnasium': _gymnasium,
+    'gk': _gk,
+    'lk': _lk
   };
 
-  static var schema = Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
+  static var schema = amplify_core.Model.defineSchema(define: (amplify_core.ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "TopicCategories";
     modelSchemaDefinition.pluralName = "TopicCategories";
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade5',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade6',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade7',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade8',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade9',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade10',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade11',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade12',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'grade13',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'realschule',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'gesamtschule',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'gymnasium',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'gk',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
     
-    modelSchemaDefinition.addField(ModelFieldDefinition.customTypeField(
+    modelSchemaDefinition.addField(amplify_core.ModelFieldDefinition.customTypeField(
       fieldName: 'lk',
       isRequired: false,
-      ofType: ModelFieldType(ModelFieldTypeEnum.bool)
+      ofType: amplify_core.ModelFieldType(amplify_core.ModelFieldTypeEnum.bool)
     ));
   });
 }

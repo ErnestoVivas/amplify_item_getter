@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.5.2\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.1.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "DOMAINBLACKLIST": {
       "Type": "String",
@@ -71,12 +71,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "studyspacemobileappauthPreSignup",
+            "studyspaceappauthPreSignup",
             {
               "Fn::Join": [
                 "",
                 [
-                  "studyspacemobileappauthPreSignup",
+                  "studyspaceappauthPreSignup",
                   "-",
                   {
                     "Ref": "env"
@@ -111,7 +111,7 @@
             "Arn"
           ]
         },
-        "Runtime": "nodejs14.x",
+        "Runtime": "nodejs18.x",
         "Timeout": 25,
         "Code": {
           "S3Bucket": {
@@ -129,12 +129,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "studyspacemobileappauthPreSignup",
+            "studyspaceappauthPreSignup",
             {
               "Fn::Join": [
                 "",
                 [
-                  "studyspacemobileappauthPreSignup",
+                  "studyspaceappauthPreSignup",
                   "-",
                   {
                     "Ref": "env"
@@ -225,17 +225,17 @@
         "Ref": "LambdaExecutionRole"
       }
     },
-    "Region": {
-      "Value": {
-        "Ref": "AWS::Region"
-      }
-    },
     "LambdaExecutionRoleArn": {
       "Value": {
         "Fn::GetAtt": [
           "LambdaExecutionRole",
           "Arn"
         ]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
       }
     }
   }
